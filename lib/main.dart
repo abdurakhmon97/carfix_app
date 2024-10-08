@@ -1,68 +1,63 @@
+import 'package:carfix_app/application/theme/theme_bloc.dart';
+import 'package:carfix_app/data/storage/shared_pref_storage.dart';
+import 'package:carfix_app/utils/carfix_uikit.dart';
+import 'package:carfix_app/utils/navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
+  );
+  await SharedPrefStorage().initPrefs();
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.transparent),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+  State<MyApp> createState() => _MyAppState();
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class _MyAppState extends State<MyApp> {
+  final _router = Navigation().router;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.error,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+    return CarfixGestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (_) => ThemeBloc()..add(LoadTheme())),
+        ],
+        child: BlocBuilder<ThemeBloc, ThemeState>(
+          builder: (context, state) {
+            if (state is ThemeLoaded) {
+              return MaterialApp.router(
+                title: 'Carfix App',
+                debugShowCheckedModeBanner: false,
+                theme: state.theme,
+                themeMode: state.mode,
+                routeInformationParser: _router.routeInformationParser,
+                routeInformationProvider: _router.routeInformationProvider,
+                routerDelegate: _router.routerDelegate,
+                builder: (_, child) {
+                  return MediaQuery(
+                    data: MediaQuery.of(context).copyWith(
+                      boldText: false,
+                      textScaler: TextScaler.noScaling,
+                    ),
+                    child: child ?? const SizedBox.shrink(),
+                  );
+                },
+              );
+            }
+            return const SizedBox.shrink();
+          },
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
