@@ -1,0 +1,11 @@
+{
+  "applicationName": "Carfix",
+  "login": {
+    "title": "Вход",
+    "forgotPassword": "Забыли пароль?"
+  },
+  "shared": {
+    "phoneNumber": "Номер телефона",
+    "password": "Пароль"
+  }
+}

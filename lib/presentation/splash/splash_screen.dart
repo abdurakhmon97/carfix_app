@@ -1,7 +1,6 @@
 import 'package:carfix_app/presentation/authorization/login_screen.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
-import 'package:carfix_app/utils/theme/app_theme.dart';
-import 'package:carfix_app/utils/theme/text_styles.dart';
+import 'package:carfix_app/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -53,10 +52,10 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: getQueryData(context).size.width,
-        height: getQueryData(context).size.height,
-        color: AppTheme.colors.background,
+      backgroundColor: context.colorScheme.onPrimary,
+      body: SizedBox(
+        width: context.screenSize.width,
+        height: context.screenSize.height,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -82,7 +81,7 @@ class _SplashScreenState extends State<SplashScreen>
                   firstChild: Container(),
                   secondChild: Text(
                     "Carfix",
-                    style: TextStyles.title3Bold,
+                    style: context.textTheme.headlineMedium,
                   ),
                   alignment: Alignment.centerLeft,
                   sizeCurve: Curves.easeInOut,

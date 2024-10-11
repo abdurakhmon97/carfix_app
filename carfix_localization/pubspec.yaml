@@ -1,0 +1,13 @@
+name: carfix_localization
+description: "carfix_localization"
+
+environment:
+  sdk: ^3.5.2
+
+dependencies:
+  slang: ^3.32.0
+  slang_flutter: ^3.32.0
+
+dev_dependencies:
+  build_runner: ^2.4.13
+  slang_build_runner: ^3.32.0

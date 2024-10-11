@@ -1,0 +1,11 @@
+{
+  "applicationName": "Carfix",
+  "login": {
+    "title": "Kirish",
+    "forgotPassword": "Parolni unutdingizmi?"
+  },
+  "shared": {
+    "phoneNumber": "Telefon raqam",
+    "password": "Parol"
+  }
+}

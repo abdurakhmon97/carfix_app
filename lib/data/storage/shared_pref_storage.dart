@@ -5,6 +5,7 @@ class SharedPrefStorage {
   static const String lightTheme = 'light';
   static const String darkTheme = 'dark';
   static const String systemTheme = 'system';
+  static const String _localeKey = 'locale';
 
   static final SharedPrefStorage _instance = SharedPrefStorage._internal();
 
@@ -26,7 +27,14 @@ class SharedPrefStorage {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  String get getTheme => _prefs.getString(_themeKey) ?? systemTheme;
+  //String get getTheme => _prefs.getString(_themeKey) ?? systemTheme;
+  String get getTheme => _prefs.getString(_themeKey) ?? lightTheme;
 
-  void setTheme(String theme) => _prefs.setString(_themeKey, theme);
+  Future<void> setTheme(String theme) async =>
+      await _prefs.setString(_themeKey, theme);
+
+  String get getLocale => _prefs.getString(_localeKey) ?? "uz";
+
+  Future<void> setLocale(String locale) async =>
+      await _prefs.setString(_localeKey, locale);
 }

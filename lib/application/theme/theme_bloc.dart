@@ -2,13 +2,11 @@ import 'dart:async';
 
 import 'package:carfix_app/data/storage/shared_pref_storage.dart';
 import 'package:carfix_app/utils/theme/app_theme.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'theme_event.dart';
-
 part 'theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
@@ -21,7 +19,7 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
 
   FutureOr<void> _changeTheme(
       ChangeTheme event, Emitter<ThemeState> emit) async {
-    prefs.setTheme(event.mode.name);
+    await prefs.setTheme(event.mode.name);
     await AppTheme.init();
     emit(
       ThemeLoaded(theme: AppTheme.data, mode: AppTheme.themeType),
