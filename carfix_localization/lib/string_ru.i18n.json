@@ -2,10 +2,15 @@
   "applicationName": "Carfix",
   "login": {
     "title": "Вход",
-    "forgotPassword": "Забыли пароль?"
+    "forgotPassword": "Забыли пароль?",
+    "register": "Зарегистрироваться"
+  },
+  "registration": {
+    "title": "Регистрация"
   },
   "shared": {
     "phoneNumber": "Номер телефона",
-    "password": "Пароль"
+    "password": "Пароль",
+    "repeatPassword": "Повторите пароль"
   }
 }

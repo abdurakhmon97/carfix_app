@@ -1,27 +1,27 @@
-import 'package:carfix_app/presentation/authorization/registration_screen.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
 import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegistrationScreen extends StatefulWidget {
+  const RegistrationScreen({super.key});
 
-  static const String tag = '/login';
+  static const String tag = 'registration';
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegistrationScreenState extends State<RegistrationScreen> {
   final _formKey = GlobalKey<FormFieldState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _repeatPasswordController = TextEditingController();
 
   @override
   void dispose() {
     _usernameController.dispose();
     _passwordController.dispose();
+    _repeatPasswordController.dispose();
     super.dispose();
   }
 
@@ -30,8 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final tr = context.tr;
     return Scaffold(
       appBar: CarfixAppBar(
-        title: tr.login.title,
-        isBackButtonVisible: false,
+        title: tr.registration.title,
       ),
       body: Form(
         key: _formKey,
@@ -54,29 +53,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 hintText: tr.shared.password,
               ),
               const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(tr.login.forgotPassword),
-                  ),
-                ],
+              CarfixTextField(
+                controller: _repeatPasswordController,
+                hintText: tr.shared.repeatPassword,
               ),
               const SizedBox(height: 24),
               CarfixButton(
-                title: tr.login.title,
+                title: tr.registration.title,
                 isLoading: false,
                 onTap: () {},
-              ),
-              const SizedBox(height: 24),
-              TextButton(
-                onPressed: () => context.pushNamed(
-                  RegistrationScreen.tag,
-                ),
-                child: Text(
-                  tr.login.register,
-                ),
               ),
             ],
           ),

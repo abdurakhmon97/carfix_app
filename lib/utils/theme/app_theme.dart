@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:carfix_app/data/storage/shared_pref_storage.dart';
 import 'package:flutter/material.dart';
 
+const _seedColor = Color(0xFFD3EA60);
+
 class AppTheme {
   static late ThemeMode themeType;
 
@@ -17,12 +19,12 @@ class AppTheme {
         case SharedPrefStorage.lightTheme:
           themeType = ThemeMode.light;
           colorScheme = ColorScheme.fromSeed(
-            seedColor: const Color(0xFFD3EA60),
+            seedColor: _seedColor,
           );
         case SharedPrefStorage.darkTheme:
           themeType = ThemeMode.dark;
           colorScheme = ColorScheme.fromSeed(
-            seedColor: const Color(0xFFD3EA60),
+            seedColor: _seedColor,
             brightness: Brightness.dark,
           );
         default:
@@ -30,12 +32,12 @@ class AppTheme {
           if (PlatformDispatcher.instance.platformBrightness ==
               Brightness.dark) {
             colorScheme = ColorScheme.fromSeed(
-              seedColor: const Color(0xFFD3EA60),
+              seedColor: _seedColor,
               brightness: Brightness.dark,
             );
           } else {
             colorScheme = ColorScheme.fromSeed(
-              seedColor: const Color(0xFFD3EA60),
+              seedColor: _seedColor,
             );
           }
       }

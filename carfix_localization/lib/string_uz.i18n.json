@@ -2,10 +2,15 @@
   "applicationName": "Carfix",
   "login": {
     "title": "Kirish",
-    "forgotPassword": "Parolni unutdingizmi?"
+    "forgotPassword": "Parolni unutdingizmi?",
+    "register": "Ro'yxatdan o'tish"
+  },
+  "registration": {
+    "title": "Ro'yxatdan o'tish"
   },
   "shared": {
     "phoneNumber": "Telefon raqam",
-    "password": "Parol"
+    "password": "Parol",
+    "repeatPassword": "Parolni qaytaring"
   }
 }

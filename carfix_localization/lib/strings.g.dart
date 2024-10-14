@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 10 (5 per locale)
+/// Strings: 16 (8 per locale)
 ///
-/// Built on 2024-10-11 at 11:35 UTC
+/// Built on 2024-10-14 at 10:30 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -151,6 +151,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	// Translations
 	String get applicationName => 'Carfix';
 	late final StringsLoginRu login = StringsLoginRu._(_root);
+	late final StringsRegistrationRu registration = StringsRegistrationRu._(_root);
 	late final StringsSharedRu shared = StringsSharedRu._(_root);
 }
 
@@ -163,6 +164,17 @@ class StringsLoginRu {
 	// Translations
 	String get title => 'Вход';
 	String get forgotPassword => 'Забыли пароль?';
+	String get register => 'Зарегистрироваться';
+}
+
+// Path: registration
+class StringsRegistrationRu {
+	StringsRegistrationRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Регистрация';
 }
 
 // Path: shared
@@ -174,6 +186,7 @@ class StringsSharedRu {
 	// Translations
 	String get phoneNumber => 'Номер телефона';
 	String get password => 'Пароль';
+	String get repeatPassword => 'Повторите пароль';
 }
 
 // Path: <root>
@@ -204,6 +217,7 @@ class StringsUz extends Translations {
 	// Translations
 	@override String get applicationName => 'Carfix';
 	@override late final StringsLoginUz login = StringsLoginUz._(_root);
+	@override late final StringsRegistrationUz registration = StringsRegistrationUz._(_root);
 	@override late final StringsSharedUz shared = StringsSharedUz._(_root);
 }
 
@@ -216,6 +230,17 @@ class StringsLoginUz extends StringsLoginRu {
 	// Translations
 	@override String get title => 'Kirish';
 	@override String get forgotPassword => 'Parolni unutdingizmi?';
+	@override String get register => 'Ro\'yxatdan o\'tish';
+}
+
+// Path: registration
+class StringsRegistrationUz extends StringsRegistrationRu {
+	StringsRegistrationUz._(StringsUz root) : this._root = root, super._(root);
+
+	@override final StringsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Ro\'yxatdan o\'tish';
 }
 
 // Path: shared
@@ -227,6 +252,7 @@ class StringsSharedUz extends StringsSharedRu {
 	// Translations
 	@override String get phoneNumber => 'Telefon raqam';
 	@override String get password => 'Parol';
+	@override String get repeatPassword => 'Parolni qaytaring';
 }
 
 /// Flat map(s) containing all translations.
@@ -238,8 +264,11 @@ extension on Translations {
 			case 'applicationName': return 'Carfix';
 			case 'login.title': return 'Вход';
 			case 'login.forgotPassword': return 'Забыли пароль?';
+			case 'login.register': return 'Зарегистрироваться';
+			case 'registration.title': return 'Регистрация';
 			case 'shared.phoneNumber': return 'Номер телефона';
 			case 'shared.password': return 'Пароль';
+			case 'shared.repeatPassword': return 'Повторите пароль';
 			default: return null;
 		}
 	}
@@ -251,8 +280,11 @@ extension on StringsUz {
 			case 'applicationName': return 'Carfix';
 			case 'login.title': return 'Kirish';
 			case 'login.forgotPassword': return 'Parolni unutdingizmi?';
+			case 'login.register': return 'Ro\'yxatdan o\'tish';
+			case 'registration.title': return 'Ro\'yxatdan o\'tish';
 			case 'shared.phoneNumber': return 'Telefon raqam';
 			case 'shared.password': return 'Parol';
+			case 'shared.repeatPassword': return 'Parolni qaytaring';
 			default: return null;
 		}
 	}

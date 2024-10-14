@@ -1,6 +1,7 @@
 import 'package:alice/alice.dart';
 import 'package:alice/model/alice_configuration.dart';
 import 'package:carfix_app/presentation/authorization/login_screen.dart';
+import 'package:carfix_app/presentation/authorization/registration_screen.dart';
 import 'package:carfix_app/presentation/splash/splash_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
@@ -31,6 +32,13 @@ class Navigation {
         path: LoginScreen.tag,
         name: LoginScreen.tag,
         builder: (_, __) => const LoginScreen(),
+        routes: [
+          GoRoute(
+            path: RegistrationScreen.tag,
+            name: RegistrationScreen.tag,
+            builder: (_, __) => const RegistrationScreen(),
+          ),
+        ],
       ),
     ],
   );
