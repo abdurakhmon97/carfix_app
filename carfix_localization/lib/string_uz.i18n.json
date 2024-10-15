@@ -8,6 +8,13 @@
   "registration": {
     "title": "Ro'yxatdan o'tish"
   },
+  "otp": {
+    "verification": "SMS tasdiqlash",
+    "sentSmsTo(rich)": "SMS kod $number raqamiga yuborildi",
+    "didNotReceive": "Kodni olmadingizmi?",
+    "retry": "Qayta jo'natish",
+    "verify": "Tasdiqlash"
+  },
   "shared": {
     "phoneNumber": "Telefon raqam",
     "password": "Parol",

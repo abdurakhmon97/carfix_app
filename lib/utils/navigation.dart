@@ -2,6 +2,8 @@ import 'package:alice/alice.dart';
 import 'package:alice/model/alice_configuration.dart';
 import 'package:carfix_app/presentation/authorization/login_screen.dart';
 import 'package:carfix_app/presentation/authorization/registration_screen.dart';
+import 'package:carfix_app/presentation/otp/otp_arguments.dart';
+import 'package:carfix_app/presentation/otp/otp_screen.dart';
 import 'package:carfix_app/presentation/splash/splash_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
@@ -39,6 +41,13 @@ class Navigation {
             builder: (_, __) => const RegistrationScreen(),
           ),
         ],
+      ),
+      GoRoute(
+        path: OtpScreen.tag,
+        name: OtpScreen.tag,
+        builder: (_, state) => OtpScreen(
+          arguments: state.extra as OtpArguments,
+        ),
       ),
     ],
   );

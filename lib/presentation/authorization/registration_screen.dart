@@ -1,6 +1,9 @@
+import 'package:carfix_app/presentation/otp/otp_arguments.dart';
+import 'package:carfix_app/presentation/otp/otp_screen.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
 import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -61,7 +64,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               CarfixButton(
                 title: tr.registration.title,
                 isLoading: false,
-                onTap: () {},
+                onTap: () => context.pushNamed(
+                  OtpScreen.tag,
+                  extra: OtpArguments(phoneNumber: _usernameController.text),
+                ),
               ),
             ],
           ),

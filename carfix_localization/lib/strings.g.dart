@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 16 (8 per locale)
+/// Strings: 26 (13 per locale)
 ///
-/// Built on 2024-10-14 at 10:30 UTC
+/// Built on 2024-10-15 at 08:29 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -152,6 +152,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get applicationName => 'Carfix';
 	late final StringsLoginRu login = StringsLoginRu._(_root);
 	late final StringsRegistrationRu registration = StringsRegistrationRu._(_root);
+	late final StringsOtpRu otp = StringsOtpRu._(_root);
 	late final StringsSharedRu shared = StringsSharedRu._(_root);
 }
 
@@ -175,6 +176,23 @@ class StringsRegistrationRu {
 
 	// Translations
 	String get title => 'Регистрация';
+}
+
+// Path: otp
+class StringsOtpRu {
+	StringsOtpRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get verification => 'СМС подтверждение';
+	TextSpan sentSmsTo({required InlineSpan number}) => TextSpan(children: [
+		const TextSpan(text: 'СМС с кодом отправлен на номер '),
+		number,
+	]);
+	String get didNotReceive => 'Не получили код?';
+	String get retry => 'Отправить снова';
+	String get verify => 'Подтвердить';
 }
 
 // Path: shared
@@ -218,6 +236,7 @@ class StringsUz extends Translations {
 	@override String get applicationName => 'Carfix';
 	@override late final StringsLoginUz login = StringsLoginUz._(_root);
 	@override late final StringsRegistrationUz registration = StringsRegistrationUz._(_root);
+	@override late final StringsOtpUz otp = StringsOtpUz._(_root);
 	@override late final StringsSharedUz shared = StringsSharedUz._(_root);
 }
 
@@ -243,6 +262,24 @@ class StringsRegistrationUz extends StringsRegistrationRu {
 	@override String get title => 'Ro\'yxatdan o\'tish';
 }
 
+// Path: otp
+class StringsOtpUz extends StringsOtpRu {
+	StringsOtpUz._(StringsUz root) : this._root = root, super._(root);
+
+	@override final StringsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get verification => 'SMS tasdiqlash';
+	@override TextSpan sentSmsTo({required InlineSpan number}) => TextSpan(children: [
+		const TextSpan(text: 'SMS kod '),
+		number,
+		const TextSpan(text: ' raqamiga yuborildi'),
+	]);
+	@override String get didNotReceive => 'Kodni olmadingizmi?';
+	@override String get retry => 'Qayta jo\'natish';
+	@override String get verify => 'Tasdiqlash';
+}
+
 // Path: shared
 class StringsSharedUz extends StringsSharedRu {
 	StringsSharedUz._(StringsUz root) : this._root = root, super._(root);
@@ -266,6 +303,14 @@ extension on Translations {
 			case 'login.forgotPassword': return 'Забыли пароль?';
 			case 'login.register': return 'Зарегистрироваться';
 			case 'registration.title': return 'Регистрация';
+			case 'otp.verification': return 'СМС подтверждение';
+			case 'otp.sentSmsTo': return ({required InlineSpan number}) => TextSpan(children: [
+				const TextSpan(text: 'СМС с кодом отправлен на номер '),
+				number,
+			]);
+			case 'otp.didNotReceive': return 'Не получили код?';
+			case 'otp.retry': return 'Отправить снова';
+			case 'otp.verify': return 'Подтвердить';
 			case 'shared.phoneNumber': return 'Номер телефона';
 			case 'shared.password': return 'Пароль';
 			case 'shared.repeatPassword': return 'Повторите пароль';
@@ -282,6 +327,15 @@ extension on StringsUz {
 			case 'login.forgotPassword': return 'Parolni unutdingizmi?';
 			case 'login.register': return 'Ro\'yxatdan o\'tish';
 			case 'registration.title': return 'Ro\'yxatdan o\'tish';
+			case 'otp.verification': return 'SMS tasdiqlash';
+			case 'otp.sentSmsTo': return ({required InlineSpan number}) => TextSpan(children: [
+				const TextSpan(text: 'SMS kod '),
+				number,
+				const TextSpan(text: ' raqamiga yuborildi'),
+			]);
+			case 'otp.didNotReceive': return 'Kodni olmadingizmi?';
+			case 'otp.retry': return 'Qayta jo\'natish';
+			case 'otp.verify': return 'Tasdiqlash';
 			case 'shared.phoneNumber': return 'Telefon raqam';
 			case 'shared.password': return 'Parol';
 			case 'shared.repeatPassword': return 'Parolni qaytaring';

@@ -8,6 +8,13 @@
   "registration": {
     "title": "Регистрация"
   },
+  "otp": {
+    "verification": "СМС подтверждение",
+    "sentSmsTo(rich)": "СМС с кодом отправлен на номер $number",
+    "didNotReceive": "Не получили код?",
+    "retry": "Отправить снова",
+    "verify": "Подтвердить"
+  },
   "shared": {
     "phoneNumber": "Номер телефона",
     "password": "Пароль",

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:carfix_app/application/language/language_bloc.dart';
 import 'package:carfix_app/application/theme/theme_bloc.dart';
 import 'package:carfix_app/data/storage/shared_pref_storage.dart';
@@ -64,17 +66,27 @@ class _MyAppState extends State<MyApp> {
                         DefaultCupertinoLocalizations.delegate,
                       ],
                       supportedLocales: AppLocaleUtils.supportedLocales,
-                      locale: Locale('uz'),
+                      locale: langState.locale.flutterLocale,
                       builder: (_, child) {
                         return child ?? const SizedBox.shrink();
                       },
                     );
                   }
-                  return const SizedBox.shrink();
+                  Color color = Colors.white;
+                  if (PlatformDispatcher.instance.platformBrightness ==
+                      Brightness.dark) {
+                    color = Colors.black;
+                  }
+                  return ColoredBox(color: color);
                 },
               );
             }
-            return const SizedBox.shrink();
+            Color color = Colors.white;
+            if (PlatformDispatcher.instance.platformBrightness ==
+                Brightness.dark) {
+              color = Colors.black;
+            }
+            return ColoredBox(color: color);
           },
         ),
       ),
