@@ -13,6 +13,7 @@ class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
   LanguageBloc() : super(LanguageInitial()) {
     on<LoadLocale>(_loadLocale);
     on<SwitchLocale>(_switchLocale);
+    on<CheckLocaleInStorage>(_checkStorage);
   }
 
   final _sharedPref = SharedPrefStorage();
@@ -34,5 +35,11 @@ class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
     await _sharedPref.setLocale(event.locale.languageCode);
     LocaleSettings.setLocale(event.locale);
     emit(LanguageLoaded(locale: event.locale));
+  }
+
+  FutureOr<void> _checkStorage(
+      CheckLocaleInStorage event, Emitter<LanguageState> emit) async {
+    final locale = _sharedPref.getLocale;
+    emit(CheckLocaleInStorageSuccess(isSelected: locale != null));
   }
 }

@@ -17,3 +17,8 @@ final class SwitchLocale extends LanguageEvent {
   @override
   List<Object> get props => [locale];
 }
+
+final class CheckLocaleInStorage extends LanguageEvent {
+  @override
+  List<Object> get props => [];
+}

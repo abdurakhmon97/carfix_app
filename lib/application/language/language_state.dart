@@ -17,3 +17,12 @@ final class LanguageLoaded extends LanguageState {
   @override
   List<Object> get props => [locale];
 }
+
+final class CheckLocaleInStorageSuccess extends LanguageState {
+  const CheckLocaleInStorageSuccess({required this.isSelected});
+
+  final bool isSelected;
+
+  @override
+  List<Object> get props => [isSelected];
+}

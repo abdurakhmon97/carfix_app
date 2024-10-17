@@ -33,7 +33,7 @@ class SharedPrefStorage {
   Future<void> setTheme(String theme) async =>
       await _prefs.setString(_themeKey, theme);
 
-  String get getLocale => _prefs.getString(_localeKey) ?? "uz";
+  String? get getLocale => _prefs.getString(_localeKey);
 
   Future<void> setLocale(String locale) async =>
       await _prefs.setString(_localeKey, locale);
