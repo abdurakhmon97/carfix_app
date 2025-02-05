@@ -7,6 +7,7 @@ import 'package:carfix_app/presentation/otp/otp_arguments.dart';
 import 'package:carfix_app/presentation/otp/otp_screen.dart';
 import 'package:carfix_app/presentation/service_list/service_list_screen.dart';
 import 'package:carfix_app/presentation/splash/splash_screen.dart';
+import 'package:carfix_app/presentation/tyre/tyre_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 
@@ -60,6 +61,11 @@ class Navigation {
             path: OilScreen.tag,
             name: OilScreen.tag,
             builder: (_, __) => const OilScreen(),
+          ),
+          GoRoute(
+            path: TyreScreen.tag,
+            name: TyreScreen.tag,
+            builder: (_, __) => const TyreScreen(),
           ),
         ],
       ),

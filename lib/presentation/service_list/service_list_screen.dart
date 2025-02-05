@@ -1,4 +1,5 @@
 import 'package:carfix_app/presentation/oil/oil_screen.dart';
+import 'package:carfix_app/presentation/tyre/tyre_screen.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
 import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class ServiceListScreen extends StatelessWidget {
     return Scaffold(
       appBar: CarfixAppBar(
         title: tr.serviceList.title,
+        isBackButtonVisible: false,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -30,7 +32,7 @@ class ServiceListScreen extends StatelessWidget {
             CarfixButton(
               title: tr.tyre.title,
               isLoading: false,
-              onTap: () => context.pushNamed(OilScreen.tag),
+              onTap: () => context.pushNamed(TyreScreen.tag),
             ),
           ],
         ),

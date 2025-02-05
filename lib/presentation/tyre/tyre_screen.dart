@@ -5,20 +5,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class OilScreen extends StatefulWidget {
-  const OilScreen({super.key});
+class TyreScreen extends StatefulWidget {
+  const TyreScreen({super.key});
 
-  static const String tag = 'oil';
+  static const String tag = 'tyre';
 
   @override
-  State<OilScreen> createState() => _OilScreenState();
+  State<TyreScreen> createState() => _TyreScreenState();
 }
 
-class _OilScreenState extends State<OilScreen> {
+class _TyreScreenState extends State<TyreScreen> {
   final _changeMileage = TextEditingController();
   final _mileageToChange = TextEditingController();
 
-  bool isFilterChanged = false;
+  bool isXStyleChanged = false;
 
   @override
   void dispose() {
@@ -31,7 +31,7 @@ class _OilScreenState extends State<OilScreen> {
   Widget build(BuildContext context) {
     final tr = context.tr;
     return Scaffold(
-      appBar: CarfixAppBar(title: tr.oil.title),
+      appBar: CarfixAppBar(title: tr.tyre.title),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16,
@@ -41,14 +41,14 @@ class _OilScreenState extends State<OilScreen> {
             const SizedBox(height: 24),
             CarfixTextField(
               controller: _changeMileage,
-              labelText: tr.oil.changeMileage,
+              labelText: tr.tyre.changeMileage,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               inputType: TextInputType.number,
             ),
             const SizedBox(height: 16),
             CarfixTextField(
               controller: _mileageToChange,
-              labelText: tr.oil.mileageToChange,
+              labelText: tr.tyre.mileageToChange,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               inputType: TextInputType.number,
             ),
@@ -57,16 +57,16 @@ class _OilScreenState extends State<OilScreen> {
               children: [
                 Expanded(
                   child: Text(
-                    tr.oil.cabinFilterChanged,
+                    tr.tyre.xStyleChanged,
                     style: context.textTheme.bodyLarge,
                   ),
                 ),
                 CupertinoSwitch(
-                  value: isFilterChanged,
+                  value: isXStyleChanged,
                   onChanged: (_) {
                     setState(
                       () {
-                        isFilterChanged = !isFilterChanged;
+                        isXStyleChanged = !isXStyleChanged;
                       },
                     );
                   },
