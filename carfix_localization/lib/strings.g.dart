@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 26 (13 per locale)
+/// Strings: 50 (25 per locale)
 ///
-/// Built on 2024-10-15 at 08:29 UTC
+/// Built on 2025-02-05 at 06:38 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -152,7 +152,10 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get applicationName => 'Carfix';
 	late final StringsLoginRu login = StringsLoginRu._(_root);
 	late final StringsRegistrationRu registration = StringsRegistrationRu._(_root);
+	late final StringsServiceListRu serviceList = StringsServiceListRu._(_root);
 	late final StringsOtpRu otp = StringsOtpRu._(_root);
+	late final StringsOilRu oil = StringsOilRu._(_root);
+	late final StringsTyreRu tyre = StringsTyreRu._(_root);
 	late final StringsSharedRu shared = StringsSharedRu._(_root);
 }
 
@@ -178,6 +181,16 @@ class StringsRegistrationRu {
 	String get title => 'Регистрация';
 }
 
+// Path: serviceList
+class StringsServiceListRu {
+	StringsServiceListRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Наши сервисы';
+}
+
 // Path: otp
 class StringsOtpRu {
 	StringsOtpRu._(this._root);
@@ -195,6 +208,32 @@ class StringsOtpRu {
 	String get verify => 'Подтвердить';
 }
 
+// Path: oil
+class StringsOilRu {
+	StringsOilRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Замена масла';
+	String get changeMileage => 'Пробег во время замены';
+	String get mileageToChange => 'Пробег до следующей замены';
+	String get cabinFilterChanged => 'Заменен фильтр салона?';
+}
+
+// Path: tyre
+class StringsTyreRu {
+	StringsTyreRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Шины/колеса';
+	String get changeMileage => 'Пробег во время замены';
+	String get mileageToChange => 'Пробег до следующей перекитки';
+	String get xStyleChanged => 'Х-образная перекитка?';
+}
+
 // Path: shared
 class StringsSharedRu {
 	StringsSharedRu._(this._root);
@@ -205,6 +244,9 @@ class StringsSharedRu {
 	String get phoneNumber => 'Номер телефона';
 	String get password => 'Пароль';
 	String get repeatPassword => 'Повторите пароль';
+	String get yes => 'Да';
+	String get no => 'Нет';
+	String get save => 'Сохранить';
 }
 
 // Path: <root>
@@ -236,7 +278,10 @@ class StringsUz extends Translations {
 	@override String get applicationName => 'Carfix';
 	@override late final StringsLoginUz login = StringsLoginUz._(_root);
 	@override late final StringsRegistrationUz registration = StringsRegistrationUz._(_root);
+	@override late final StringsServiceListUz serviceList = StringsServiceListUz._(_root);
 	@override late final StringsOtpUz otp = StringsOtpUz._(_root);
+	@override late final StringsOilUz oil = StringsOilUz._(_root);
+	@override late final StringsTyreUz tyre = StringsTyreUz._(_root);
 	@override late final StringsSharedUz shared = StringsSharedUz._(_root);
 }
 
@@ -262,6 +307,16 @@ class StringsRegistrationUz extends StringsRegistrationRu {
 	@override String get title => 'Ro\'yxatdan o\'tish';
 }
 
+// Path: serviceList
+class StringsServiceListUz extends StringsServiceListRu {
+	StringsServiceListUz._(StringsUz root) : this._root = root, super._(root);
+
+	@override final StringsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Bizning xizmatlarimiz';
+}
+
 // Path: otp
 class StringsOtpUz extends StringsOtpRu {
 	StringsOtpUz._(StringsUz root) : this._root = root, super._(root);
@@ -280,6 +335,32 @@ class StringsOtpUz extends StringsOtpRu {
 	@override String get verify => 'Tasdiqlash';
 }
 
+// Path: oil
+class StringsOilUz extends StringsOilRu {
+	StringsOilUz._(StringsUz root) : this._root = root, super._(root);
+
+	@override final StringsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Moy almashtirish';
+	@override String get changeMileage => 'Almashtirish paytidagi probeg';
+	@override String get mileageToChange => 'Keyingi almashtirishgacha probeg';
+	@override String get cabinFilterChanged => 'Salon filtri almashtirildimi?';
+}
+
+// Path: tyre
+class StringsTyreUz extends StringsTyreRu {
+	StringsTyreUz._(StringsUz root) : this._root = root, super._(root);
+
+	@override final StringsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Shinalar/g\'ildiraklar';
+	@override String get changeMileage => 'Almashtirish paytidagi probeg';
+	@override String get mileageToChange => 'Keyingi g\'ildirak almashinuvi';
+	@override String get xStyleChanged => 'X-usulda almashtirildimi?';
+}
+
 // Path: shared
 class StringsSharedUz extends StringsSharedRu {
 	StringsSharedUz._(StringsUz root) : this._root = root, super._(root);
@@ -290,6 +371,9 @@ class StringsSharedUz extends StringsSharedRu {
 	@override String get phoneNumber => 'Telefon raqam';
 	@override String get password => 'Parol';
 	@override String get repeatPassword => 'Parolni qaytaring';
+	@override String get yes => 'Ha';
+	@override String get no => 'Yo\'q';
+	@override String get save => 'Saqlash';
 }
 
 /// Flat map(s) containing all translations.
@@ -303,6 +387,7 @@ extension on Translations {
 			case 'login.forgotPassword': return 'Забыли пароль?';
 			case 'login.register': return 'Зарегистрироваться';
 			case 'registration.title': return 'Регистрация';
+			case 'serviceList.title': return 'Наши сервисы';
 			case 'otp.verification': return 'СМС подтверждение';
 			case 'otp.sentSmsTo': return ({required InlineSpan number}) => TextSpan(children: [
 				const TextSpan(text: 'СМС с кодом отправлен на номер '),
@@ -311,9 +396,20 @@ extension on Translations {
 			case 'otp.didNotReceive': return 'Не получили код?';
 			case 'otp.retry': return 'Отправить снова';
 			case 'otp.verify': return 'Подтвердить';
+			case 'oil.title': return 'Замена масла';
+			case 'oil.changeMileage': return 'Пробег во время замены';
+			case 'oil.mileageToChange': return 'Пробег до следующей замены';
+			case 'oil.cabinFilterChanged': return 'Заменен фильтр салона?';
+			case 'tyre.title': return 'Шины/колеса';
+			case 'tyre.changeMileage': return 'Пробег во время замены';
+			case 'tyre.mileageToChange': return 'Пробег до следующей перекитки';
+			case 'tyre.xStyleChanged': return 'Х-образная перекитка?';
 			case 'shared.phoneNumber': return 'Номер телефона';
 			case 'shared.password': return 'Пароль';
 			case 'shared.repeatPassword': return 'Повторите пароль';
+			case 'shared.yes': return 'Да';
+			case 'shared.no': return 'Нет';
+			case 'shared.save': return 'Сохранить';
 			default: return null;
 		}
 	}
@@ -327,6 +423,7 @@ extension on StringsUz {
 			case 'login.forgotPassword': return 'Parolni unutdingizmi?';
 			case 'login.register': return 'Ro\'yxatdan o\'tish';
 			case 'registration.title': return 'Ro\'yxatdan o\'tish';
+			case 'serviceList.title': return 'Bizning xizmatlarimiz';
 			case 'otp.verification': return 'SMS tasdiqlash';
 			case 'otp.sentSmsTo': return ({required InlineSpan number}) => TextSpan(children: [
 				const TextSpan(text: 'SMS kod '),
@@ -336,9 +433,20 @@ extension on StringsUz {
 			case 'otp.didNotReceive': return 'Kodni olmadingizmi?';
 			case 'otp.retry': return 'Qayta jo\'natish';
 			case 'otp.verify': return 'Tasdiqlash';
+			case 'oil.title': return 'Moy almashtirish';
+			case 'oil.changeMileage': return 'Almashtirish paytidagi probeg';
+			case 'oil.mileageToChange': return 'Keyingi almashtirishgacha probeg';
+			case 'oil.cabinFilterChanged': return 'Salon filtri almashtirildimi?';
+			case 'tyre.title': return 'Shinalar/g\'ildiraklar';
+			case 'tyre.changeMileage': return 'Almashtirish paytidagi probeg';
+			case 'tyre.mileageToChange': return 'Keyingi g\'ildirak almashinuvi';
+			case 'tyre.xStyleChanged': return 'X-usulda almashtirildimi?';
 			case 'shared.phoneNumber': return 'Telefon raqam';
 			case 'shared.password': return 'Parol';
 			case 'shared.repeatPassword': return 'Parolni qaytaring';
+			case 'shared.yes': return 'Ha';
+			case 'shared.no': return 'Yo\'q';
+			case 'shared.save': return 'Saqlash';
 			default: return null;
 		}
 	}

@@ -1,5 +1,5 @@
 import 'package:carfix_app/application/language/language_bloc.dart';
-import 'package:carfix_app/presentation/authorization/login_screen.dart';
+import 'package:carfix_app/presentation/service_list/service_list_screen.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
 import 'package:carfix_app/utils/extensions.dart';
 import 'package:carfix_app/utils/uikit/dialog_manager.dart';
@@ -77,7 +77,7 @@ class _SplashScreenState extends State<SplashScreen>
                     BlocProvider.of<LanguageBloc>(context).add(
                       const SwitchLocale(locale: AppLocale.uz),
                     );
-                    context.goNamed(LoginScreen.tag);
+                    context.goNamed(ServiceListScreen.tag);
                   },
                 ),
                 const SizedBox(height: 16),
@@ -88,7 +88,7 @@ class _SplashScreenState extends State<SplashScreen>
                     BlocProvider.of<LanguageBloc>(context).add(
                       const SwitchLocale(locale: AppLocale.ru),
                     );
-                    context.goNamed(LoginScreen.tag);
+                    context.goNamed(ServiceListScreen.tag);
                   },
                 ),
               ],
@@ -97,7 +97,7 @@ class _SplashScreenState extends State<SplashScreen>
         },
       );
     } else {
-      context.goNamed(LoginScreen.tag);
+      context.goNamed(ServiceListScreen.tag);
     }
   }
 

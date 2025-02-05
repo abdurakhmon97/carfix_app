@@ -164,78 +164,12 @@ class AppTheme {
           color: colorScheme.onSurface,
         ),
       );
+}
 
-/*static _darkColorScheme() => const ColorScheme(
-        brightness: Brightness.dark,
-        primary: Color(0xFFD0BCFF),
-        // Lighter variant of primary color
-        onSurface: Color(0xFF381E72),
-        // Text color on primary
-        primaryContainer: Color(0xFF4F378B),
-        // Primary container background
-        onSurfaceContainer: Color(0xFFEADDFF),
-        // Text on primary container
-        secondary: Color(0xFFCCC2DC),
-        // Secondary color
-        onSecondary: Color(0xFF332D41),
-        // Text on secondary
-        secondaryContainer: Color(0xFF4A4458),
-        // Secondary container background
-        onSecondaryContainer: Color(0xFFE8DEF8),
-        // Text on secondary container
-        tertiary: Color(0xFFEFB8C8),
-        // Tertiary color
-        onTertiary: Color(0xFF492532),
-        // Text on tertiary
-        error: Color(0xFFF2B8B5),
-        // Error color
-        onError: Color(0xFF601410),
-        // Text color on background
-        surface: Color(0xFF1C1B1F),
-        // Dark surface (card background)
-        onSurface: Color(0xFFE6E1E5),
-        // Text on surface
-        surfaceContainerHighest: Color(0xFF49454F),
-        // Alternate surface color
-        onSurfaceVariant: Color(0xFFCAC4D0),
-        // Text on alternate surface
-        outline: Color(0xFF938F99), // Outlines and borders
-      );
+class AppTextTheme extends TextTheme {
+  const AppTextTheme({
+    this.commonRedStyle,
+  });
 
-  static _lightColorScheme() => const ColorScheme(
-        brightness: Brightness.light,
-        primary: Color(0xFF6750A4),
-        // Main brand color
-        onSurface: Color(0xFF342C2C),
-        // Text color on primary
-        primaryContainer: Color(0xFFEADDFF),
-        // Background color for primary elements
-        onSurfaceContainer: Color(0xFF21005D),
-        // Text on primary container
-        secondary: Color(0xFF625B71),
-        // Secondary color
-        onSecondary: Color(0xFFFFFFFF),
-        // Text on secondary
-        secondaryContainer: Color(0xFFE8DEF8),
-        // Background color for secondary
-        onSecondaryContainer: Color(0xFF1D192B),
-        // Text on secondary container
-        tertiary: Color(0xFF7D5260),
-        // Tertiary color
-        onTertiary: Color(0xFFFFFFFF),
-        // Text on tertiary
-        error: Color(0xFFB3261E),
-        // Error color
-        onError: Color(0xFFFFFFFF),
-        // Text color on background
-        surface: Color(0xFFFFFBFE),
-        // Surface (card background)
-        onSurface: Color(0xFF1C1B1F),
-        // Text on surface
-        surfaceContainerHighest: Color(0xFFE7E0EC),
-        // Alternate surface color
-        onSurfaceVariant: Color(0xFF49454F),
-        // Text on alternate surface
-        outline: Color(0xFF79747E), // Outlines and borders
-      );*/
+  final TextStyle? commonRedStyle;
 }

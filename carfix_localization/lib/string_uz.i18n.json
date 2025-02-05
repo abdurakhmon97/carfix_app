@@ -8,6 +8,9 @@
   "registration": {
     "title": "Ro'yxatdan o'tish"
   },
+  "serviceList": {
+    "title": "Bizning xizmatlarimiz"
+  },
   "otp": {
     "verification": "SMS tasdiqlash",
     "sentSmsTo(rich)": "SMS kod $number raqamiga yuborildi",
@@ -15,9 +18,24 @@
     "retry": "Qayta jo'natish",
     "verify": "Tasdiqlash"
   },
+  "oil": {
+    "title": "Moy almashtirish",
+    "changeMileage": "Almashtirish paytidagi probeg",
+    "mileageToChange": "Keyingi almashtirishgacha probeg",
+    "cabinFilterChanged": "Salon filtri almashtirildimi?"
+  },
+  "tyre": {
+    "title": "Shinalar/g'ildiraklar",
+    "changeMileage": "Almashtirish paytidagi probeg",
+    "mileageToChange": "Keyingi g'ildirak almashinuvi",
+    "xStyleChanged": "X-usulda almashtirildimi?"
+  },
   "shared": {
     "phoneNumber": "Telefon raqam",
     "password": "Parol",
-    "repeatPassword": "Parolni qaytaring"
+    "repeatPassword": "Parolni qaytaring",
+    "yes": "Ha",
+    "no": "Yo'q",
+    "save": "Saqlash"
   }
 }

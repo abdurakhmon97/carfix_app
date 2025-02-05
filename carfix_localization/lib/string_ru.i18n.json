@@ -8,6 +8,9 @@
   "registration": {
     "title": "Регистрация"
   },
+  "serviceList": {
+    "title": "Наши сервисы"
+  },
   "otp": {
     "verification": "СМС подтверждение",
     "sentSmsTo(rich)": "СМС с кодом отправлен на номер $number",
@@ -15,9 +18,24 @@
     "retry": "Отправить снова",
     "verify": "Подтвердить"
   },
+  "oil": {
+    "title": "Замена масла",
+    "changeMileage": "Пробег во время замены",
+    "mileageToChange": "Пробег до следующей замены",
+    "cabinFilterChanged": "Заменен фильтр салона?"
+  },
+  "tyre": {
+    "title": "Шины/колеса",
+    "changeMileage": "Пробег во время замены",
+    "mileageToChange": "Пробег до следующей перекитки",
+    "xStyleChanged": "Х-образная перекитка?"
+  },
   "shared": {
     "phoneNumber": "Номер телефона",
     "password": "Пароль",
-    "repeatPassword": "Повторите пароль"
+    "repeatPassword": "Повторите пароль",
+    "yes": "Да",
+    "no": "Нет",
+    "save": "Сохранить"
   }
 }

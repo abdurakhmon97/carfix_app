@@ -220,6 +220,13 @@ class CarfixTextFieldState<T extends CarfixTextField> extends State<T> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              if (widget.labelText != null) ...[
+                Text(
+                  '${widget.labelText}',
+                  style: context.textTheme.bodyMedium,
+                ),
+                const SizedBox(height: 8),
+              ],
               Container(
                 height: widget.maxLines > 1 ? null : 46,
                 padding: widget.padding,
