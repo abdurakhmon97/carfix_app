@@ -8,6 +8,10 @@
   "registration": {
     "title": "Регистрация"
   },
+  "userSelectType": {
+    "driver": "Водитель",
+    "mechanic": "Механик"
+  },
   "serviceList": {
     "title": "Наши сервисы"
   },
@@ -36,6 +40,7 @@
     "repeatPassword": "Повторите пароль",
     "yes": "Да",
     "no": "Нет",
-    "save": "Сохранить"
+    "save": "Сохранить",
+    "next": "Далее"
   }
 }

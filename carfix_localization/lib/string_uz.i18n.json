@@ -8,6 +8,10 @@
   "registration": {
     "title": "Ro'yxatdan o'tish"
   },
+  "userSelectType": {
+    "driver": "Haydovchi",
+    "mechanic": "Usta"
+  },
   "serviceList": {
     "title": "Bizning xizmatlarimiz"
   },
@@ -36,6 +40,8 @@
     "repeatPassword": "Parolni qaytaring",
     "yes": "Ha",
     "no": "Yo'q",
-    "save": "Saqlash"
+    "save": "Saqlash",
+    "next": "Keyingi"
+
   }
 }

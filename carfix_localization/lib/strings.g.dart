@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 50 (25 per locale)
+/// Strings: 56 (28 per locale)
 ///
-/// Built on 2025-02-05 at 06:38 UTC
+/// Built on 2025-02-09 at 12:43 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -152,6 +152,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	String get applicationName => 'Carfix';
 	late final StringsLoginRu login = StringsLoginRu._(_root);
 	late final StringsRegistrationRu registration = StringsRegistrationRu._(_root);
+	late final StringsUserSelectTypeRu userSelectType = StringsUserSelectTypeRu._(_root);
 	late final StringsServiceListRu serviceList = StringsServiceListRu._(_root);
 	late final StringsOtpRu otp = StringsOtpRu._(_root);
 	late final StringsOilRu oil = StringsOilRu._(_root);
@@ -179,6 +180,17 @@ class StringsRegistrationRu {
 
 	// Translations
 	String get title => 'Регистрация';
+}
+
+// Path: userSelectType
+class StringsUserSelectTypeRu {
+	StringsUserSelectTypeRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get driver => 'Водитель';
+	String get mechanic => 'Механик';
 }
 
 // Path: serviceList
@@ -247,6 +259,7 @@ class StringsSharedRu {
 	String get yes => 'Да';
 	String get no => 'Нет';
 	String get save => 'Сохранить';
+	String get next => 'Далее';
 }
 
 // Path: <root>
@@ -278,6 +291,7 @@ class StringsUz extends Translations {
 	@override String get applicationName => 'Carfix';
 	@override late final StringsLoginUz login = StringsLoginUz._(_root);
 	@override late final StringsRegistrationUz registration = StringsRegistrationUz._(_root);
+	@override late final StringsUserSelectTypeUz userSelectType = StringsUserSelectTypeUz._(_root);
 	@override late final StringsServiceListUz serviceList = StringsServiceListUz._(_root);
 	@override late final StringsOtpUz otp = StringsOtpUz._(_root);
 	@override late final StringsOilUz oil = StringsOilUz._(_root);
@@ -305,6 +319,17 @@ class StringsRegistrationUz extends StringsRegistrationRu {
 
 	// Translations
 	@override String get title => 'Ro\'yxatdan o\'tish';
+}
+
+// Path: userSelectType
+class StringsUserSelectTypeUz extends StringsUserSelectTypeRu {
+	StringsUserSelectTypeUz._(StringsUz root) : this._root = root, super._(root);
+
+	@override final StringsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get driver => 'Haydovchi';
+	@override String get mechanic => 'Usta';
 }
 
 // Path: serviceList
@@ -374,6 +399,7 @@ class StringsSharedUz extends StringsSharedRu {
 	@override String get yes => 'Ha';
 	@override String get no => 'Yo\'q';
 	@override String get save => 'Saqlash';
+	@override String get next => 'Keyingi';
 }
 
 /// Flat map(s) containing all translations.
@@ -387,6 +413,8 @@ extension on Translations {
 			case 'login.forgotPassword': return 'Забыли пароль?';
 			case 'login.register': return 'Зарегистрироваться';
 			case 'registration.title': return 'Регистрация';
+			case 'userSelectType.driver': return 'Водитель';
+			case 'userSelectType.mechanic': return 'Механик';
 			case 'serviceList.title': return 'Наши сервисы';
 			case 'otp.verification': return 'СМС подтверждение';
 			case 'otp.sentSmsTo': return ({required InlineSpan number}) => TextSpan(children: [
@@ -410,6 +438,7 @@ extension on Translations {
 			case 'shared.yes': return 'Да';
 			case 'shared.no': return 'Нет';
 			case 'shared.save': return 'Сохранить';
+			case 'shared.next': return 'Далее';
 			default: return null;
 		}
 	}
@@ -423,6 +452,8 @@ extension on StringsUz {
 			case 'login.forgotPassword': return 'Parolni unutdingizmi?';
 			case 'login.register': return 'Ro\'yxatdan o\'tish';
 			case 'registration.title': return 'Ro\'yxatdan o\'tish';
+			case 'userSelectType.driver': return 'Haydovchi';
+			case 'userSelectType.mechanic': return 'Usta';
 			case 'serviceList.title': return 'Bizning xizmatlarimiz';
 			case 'otp.verification': return 'SMS tasdiqlash';
 			case 'otp.sentSmsTo': return ({required InlineSpan number}) => TextSpan(children: [
@@ -447,6 +478,7 @@ extension on StringsUz {
 			case 'shared.yes': return 'Ha';
 			case 'shared.no': return 'Yo\'q';
 			case 'shared.save': return 'Saqlash';
+			case 'shared.next': return 'Keyingi';
 			default: return null;
 		}
 	}

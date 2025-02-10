@@ -2,6 +2,7 @@ import 'package:alice/alice.dart';
 import 'package:alice/model/alice_configuration.dart';
 import 'package:carfix_app/presentation/authorization/login_screen.dart';
 import 'package:carfix_app/presentation/authorization/registration_screen.dart';
+import 'package:carfix_app/presentation/authorization/user_type_select_page.dart';
 import 'package:carfix_app/presentation/oil/oil_screen.dart';
 import 'package:carfix_app/presentation/otp/otp_arguments.dart';
 import 'package:carfix_app/presentation/otp/otp_screen.dart';
@@ -68,6 +69,11 @@ class Navigation {
             builder: (_, __) => const TyreScreen(),
           ),
         ],
+      ),
+      GoRoute(
+        path: UserTypeSelectPage.tag,
+        name: UserTypeSelectPage.tag,
+        builder: (_, state) => const UserTypeSelectPage(),
       ),
     ],
   );
