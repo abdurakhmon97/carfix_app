@@ -37,20 +37,55 @@ class _OilScreenState extends State<OilScreen> {
           horizontal: 16,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 24),
-            CarfixTextField(
-              controller: _changeMileage,
-              labelText: tr.oil.changeMileage,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              inputType: TextInputType.number,
+            Text(
+              tr.oil.changeMileage,
+              style: context.textTheme.bodyMedium,
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                SizedBox(
+                  width: context.screenSize.width / 2,
+                  child: CarfixTextField(
+                    controller: _changeMileage,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    inputType: TextInputType.number,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  'KM',
+                  style: context.textTheme.titleMedium,
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
             const SizedBox(height: 16),
-            CarfixTextField(
-              controller: _mileageToChange,
-              labelText: tr.oil.mileageToChange,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              inputType: TextInputType.number,
+            Text(
+              tr.oil.mileageToChange,
+              style: context.textTheme.bodyMedium,
+            ),
+            const SizedBox(height: 8),
+            Row(
+              children: [
+                SizedBox(
+                  width: context.screenSize.width / 2,
+                  child: CarfixTextField(
+                    controller: _mileageToChange,
+                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    inputType: TextInputType.number,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  'KM',
+                  style: context.textTheme.titleMedium,
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
             const SizedBox(height: 16),
             Row(

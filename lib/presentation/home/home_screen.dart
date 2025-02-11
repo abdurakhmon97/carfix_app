@@ -1,7 +1,11 @@
+import 'package:carfix_app/presentation/oil/oil_screen.dart';
+import 'package:carfix_app/presentation/tyre/tyre_screen.dart';
+import 'package:carfix_app/utils/carfix_uikit.dart';
 import 'package:carfix_app/utils/extensions.dart';
 import 'package:carfix_app/utils/uikit/carfix_colors.dart';
 import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -80,49 +84,55 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: CarfixColors.white.withValues(alpha: 0.6),
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(4),
+                CarfixGestureDetector(
+                  onTap: () => context.pushNamed(OilScreen.tag),
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: CarfixColors.white.withValues(alpha: 0.6),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(4),
+                          ),
+                        ),
+                        child: const Icon(
+                          Icons.water_drop,
+                          color: CarfixColors.primary,
                         ),
                       ),
-                      child: const Icon(
-                        Icons.water_drop,
-                        color: CarfixColors.primary,
+                      const SizedBox(height: 8),
+                      Text(
+                        tr.oil.title,
+                        style: context.textTheme.titleSmall,
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      tr.oil.title,
-                      style: context.textTheme.titleSmall,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-                Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: CarfixColors.white.withValues(alpha: 0.6),
-                        borderRadius: const BorderRadius.all(
-                          Radius.circular(4),
+                CarfixGestureDetector(
+                  onTap: () => context.pushNamed(TyreScreen.tag),
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: CarfixColors.white.withValues(alpha: 0.6),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(4),
+                          ),
+                        ),
+                        child: const Icon(
+                          Icons.change_circle,
+                          color: CarfixColors.primary,
                         ),
                       ),
-                      child: const Icon(
-                        Icons.change_circle,
-                        color: CarfixColors.primary,
+                      const SizedBox(height: 8),
+                      Text(
+                        tr.tyre.title,
+                        style: context.textTheme.titleSmall,
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      tr.tyre.title,
-                      style: context.textTheme.titleSmall,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             )
