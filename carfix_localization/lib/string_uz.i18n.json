@@ -34,6 +34,9 @@
     "mileageToChange": "Keyingi g'ildirak almashinuvi",
     "xStyleChanged": "X-usulda almashtirildimi?"
   },
+  "home": {
+    "addCar": "Mashina qo'shish"
+  },
   "shared": {
     "phoneNumber": "Telefon raqam",
     "password": "Parol",

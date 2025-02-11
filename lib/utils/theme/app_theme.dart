@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:carfix_app/data/storage/shared_pref_storage.dart';
 import 'package:flutter/material.dart';
 
-const _seedColor = Color(0xFFD3EA60);
+const _seedColor = Color(0xFF2F80ED);
 
 class AppTheme {
   static late ThemeMode themeType;

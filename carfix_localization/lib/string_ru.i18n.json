@@ -34,6 +34,9 @@
     "mileageToChange": "Пробег до следующей перекитки",
     "xStyleChanged": "Х-образная перекитка?"
   },
+  "home": {
+    "addCar": "Добавить машину"
+  },
   "shared": {
     "phoneNumber": "Номер телефона",
     "password": "Пароль",

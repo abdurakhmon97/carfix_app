@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 56 (28 per locale)
+/// Strings: 58 (29 per locale)
 ///
-/// Built on 2025-02-09 at 12:43 UTC
+/// Built on 2025-02-10 at 07:27 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -157,6 +157,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final StringsOtpRu otp = StringsOtpRu._(_root);
 	late final StringsOilRu oil = StringsOilRu._(_root);
 	late final StringsTyreRu tyre = StringsTyreRu._(_root);
+	late final StringsHomeRu home = StringsHomeRu._(_root);
 	late final StringsSharedRu shared = StringsSharedRu._(_root);
 }
 
@@ -246,6 +247,16 @@ class StringsTyreRu {
 	String get xStyleChanged => 'Х-образная перекитка?';
 }
 
+// Path: home
+class StringsHomeRu {
+	StringsHomeRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get addCar => 'Добавить машину';
+}
+
 // Path: shared
 class StringsSharedRu {
 	StringsSharedRu._(this._root);
@@ -296,6 +307,7 @@ class StringsUz extends Translations {
 	@override late final StringsOtpUz otp = StringsOtpUz._(_root);
 	@override late final StringsOilUz oil = StringsOilUz._(_root);
 	@override late final StringsTyreUz tyre = StringsTyreUz._(_root);
+	@override late final StringsHomeUz home = StringsHomeUz._(_root);
 	@override late final StringsSharedUz shared = StringsSharedUz._(_root);
 }
 
@@ -386,6 +398,16 @@ class StringsTyreUz extends StringsTyreRu {
 	@override String get xStyleChanged => 'X-usulda almashtirildimi?';
 }
 
+// Path: home
+class StringsHomeUz extends StringsHomeRu {
+	StringsHomeUz._(StringsUz root) : this._root = root, super._(root);
+
+	@override final StringsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get addCar => 'Mashina qo\'shish';
+}
+
 // Path: shared
 class StringsSharedUz extends StringsSharedRu {
 	StringsSharedUz._(StringsUz root) : this._root = root, super._(root);
@@ -432,6 +454,7 @@ extension on Translations {
 			case 'tyre.changeMileage': return 'Пробег во время замены';
 			case 'tyre.mileageToChange': return 'Пробег до следующей перекитки';
 			case 'tyre.xStyleChanged': return 'Х-образная перекитка?';
+			case 'home.addCar': return 'Добавить машину';
 			case 'shared.phoneNumber': return 'Номер телефона';
 			case 'shared.password': return 'Пароль';
 			case 'shared.repeatPassword': return 'Повторите пароль';
@@ -472,6 +495,7 @@ extension on StringsUz {
 			case 'tyre.changeMileage': return 'Almashtirish paytidagi probeg';
 			case 'tyre.mileageToChange': return 'Keyingi g\'ildirak almashinuvi';
 			case 'tyre.xStyleChanged': return 'X-usulda almashtirildimi?';
+			case 'home.addCar': return 'Mashina qo\'shish';
 			case 'shared.phoneNumber': return 'Telefon raqam';
 			case 'shared.password': return 'Parol';
 			case 'shared.repeatPassword': return 'Parolni qaytaring';

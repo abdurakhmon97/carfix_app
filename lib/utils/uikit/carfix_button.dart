@@ -1,4 +1,5 @@
 import 'package:carfix_app/utils/extensions.dart';
+import 'package:carfix_app/utils/uikit/carfix_colors.dart';
 import 'package:flutter/material.dart';
 
 class CarfixButton extends StatelessWidget {
@@ -23,7 +24,7 @@ class CarfixButton extends StatelessWidget {
       onPressed: isLoading ? () {} : onTap,
       style: ButtonStyle(
         fixedSize: WidgetStateProperty.all(
-          const Size.fromHeight(44),
+          const Size.fromHeight(36),
         ),
         padding: WidgetStateProperty.all(
           const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -36,7 +37,7 @@ class CarfixButton extends StatelessWidget {
         alignment: Alignment.center,
         shape: WidgetStateProperty.all(
           const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
+            borderRadius: BorderRadius.all(Radius.circular(4)),
           ),
         ),
       ),
@@ -64,7 +65,9 @@ class CarfixButton extends StatelessWidget {
                 ],
                 Text(
                   title,
-                  style: context.textTheme.titleMedium,
+                  style: context.textTheme.titleMedium?.copyWith(
+                    color: context.colorScheme.onPrimary,
+                  ),
                 ),
                 if (rightIcon != null) ...[
                   const SizedBox(width: 16),
@@ -77,12 +80,12 @@ class CarfixButton extends StatelessWidget {
 
   Color _buttonColor(BuildContext context) {
     if (onTap == null) {
-      return context.colorScheme.surfaceDim;
+      return CarfixColors.primary.withValues(alpha: 0.5);
     }
-    return context.colorScheme.surfaceContainerLowest;
+    return CarfixColors.primary;
   }
 
   Color _onTapColor(BuildContext context) {
-    return context.colorScheme.surface;
+    return context.colorScheme.primary;
   }
 }

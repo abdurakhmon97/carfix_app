@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 extension Localization on BuildContext {
@@ -22,4 +23,23 @@ extension Localization on BuildContext {
   TextTheme get textTheme => Theme.of(this).textTheme;
 
   ColorScheme get colorScheme => Theme.of(this).colorScheme;
+}
+
+extension SvgPictureExt on SvgPicture {
+  SvgPicture copyWith({
+    Color? color,
+    double? width,
+    final double? height,
+    BoxFit? fit,
+  }) {
+    final colorFilter =
+        color != null ? ColorFilter.mode(color, BlendMode.srcIn) : null;
+    return SvgPicture(
+      bytesLoader,
+      colorFilter: colorFilter ?? this.colorFilter,
+      width: width ?? this.width,
+      height: height ?? this.height,
+      fit: fit ?? this.fit,
+    );
+  }
 }

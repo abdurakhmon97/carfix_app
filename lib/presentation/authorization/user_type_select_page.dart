@@ -1,9 +1,10 @@
+import 'package:carfix_app/presentation/bottom_nav_bar.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
+import 'package:carfix_app/utils/uikit/carfix_colors.dart';
 import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-enum _UserType { driver, mechanic }
+import 'package:go_router/go_router.dart';
 
 class UserTypeSelectPage extends StatefulWidget {
   const UserTypeSelectPage({super.key});
@@ -47,13 +48,13 @@ class _UserTypeSelectPageState extends State<UserTypeSelectPage> {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         border: Border.all(
-                          color: const Color(0xFF2F80ED),
+                          color: CarfixColors.primary,
                           width: 2,
                         ),
                       ),
                       child: const DecoratedBox(
                         decoration: BoxDecoration(
-                          color: Color(0xFF2F80ED),
+                          color: CarfixColors.primary,
                           shape: BoxShape.circle,
                         ),
                       ),
@@ -93,7 +94,7 @@ class _UserTypeSelectPageState extends State<UserTypeSelectPage> {
             const SizedBox(height: 32),
             CarfixButton(
               title: tr.shared.next,
-              onTap: () {},
+              onTap: () => context.goNamed(BottomNavBar.tag),
               isLoading: false,
             ),
           ],
