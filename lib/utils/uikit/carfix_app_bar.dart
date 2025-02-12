@@ -25,6 +25,7 @@ class CarfixAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: context.colorScheme.primaryContainer,
       leading: _appBarLeading(context),
       automaticallyImplyLeading: false,
+      scrolledUnderElevation: 0,
     );
   }
 

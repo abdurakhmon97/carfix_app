@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 58 (29 per locale)
+/// Strings: 90 (45 per locale)
 ///
-/// Built on 2025-02-11 at 17:11 UTC
+/// Built on 2025-02-12 at 10:54 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -158,6 +158,10 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final StringsOilRu oil = StringsOilRu._(_root);
 	late final StringsTyreRu tyre = StringsTyreRu._(_root);
 	late final StringsHomeRu home = StringsHomeRu._(_root);
+	late final StringsSettingsRu settings = StringsSettingsRu._(_root);
+	late final StringsProfileRu profile = StringsProfileRu._(_root);
+	late final StringsAddCarRu addCar = StringsAddCarRu._(_root);
+	late final StringsMechanicsRu mechanics = StringsMechanicsRu._(_root);
 	late final StringsSharedRu shared = StringsSharedRu._(_root);
 }
 
@@ -257,6 +261,57 @@ class StringsHomeRu {
 	String get addCar => 'Добавить машину';
 }
 
+// Path: settings
+class StringsSettingsRu {
+	StringsSettingsRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Настройки';
+	String get theme => 'Темная тема';
+	String get language => 'Сменить язык';
+	String get share => 'Поделиться';
+	String get support => 'Поддержка';
+	String get faq => 'Вопросы/ответы';
+}
+
+// Path: profile
+class StringsProfileRu {
+	StringsProfileRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Профиль';
+	String get personalInfo => 'Персональные данные';
+	String get favoriteMechanics => 'Сохраненные мастера';
+	String get password => 'Пароль';
+	String get logout => 'Выйти';
+}
+
+// Path: addCar
+class StringsAddCarRu {
+	StringsAddCarRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Добавить машину';
+	String get carPassport => 'Серия и номер паспорта';
+	String get carVin => 'VIN-номер';
+}
+
+// Path: mechanics
+class StringsMechanicsRu {
+	StringsMechanicsRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Мастера';
+}
+
 // Path: shared
 class StringsSharedRu {
 	StringsSharedRu._(this._root);
@@ -271,6 +326,7 @@ class StringsSharedRu {
 	String get no => 'Нет';
 	String get save => 'Сохранить';
 	String get next => 'Далее';
+	String get search => 'Поиск';
 }
 
 // Path: <root>
@@ -308,6 +364,10 @@ class StringsUz extends Translations {
 	@override late final StringsOilUz oil = StringsOilUz._(_root);
 	@override late final StringsTyreUz tyre = StringsTyreUz._(_root);
 	@override late final StringsHomeUz home = StringsHomeUz._(_root);
+	@override late final StringsSettingsUz settings = StringsSettingsUz._(_root);
+	@override late final StringsProfileUz profile = StringsProfileUz._(_root);
+	@override late final StringsAddCarUz addCar = StringsAddCarUz._(_root);
+	@override late final StringsMechanicsUz mechanics = StringsMechanicsUz._(_root);
 	@override late final StringsSharedUz shared = StringsSharedUz._(_root);
 }
 
@@ -408,6 +468,57 @@ class StringsHomeUz extends StringsHomeRu {
 	@override String get addCar => 'Mashina qo\'shish';
 }
 
+// Path: settings
+class StringsSettingsUz extends StringsSettingsRu {
+	StringsSettingsUz._(StringsUz root) : this._root = root, super._(root);
+
+	@override final StringsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Sozlamalar';
+	@override String get theme => 'Tungi rejim';
+	@override String get language => 'Tilni o\'zgartirish';
+	@override String get share => 'Ulashis';
+	@override String get support => 'Bog\'lanish';
+	@override String get faq => 'Savol/javoblar';
+}
+
+// Path: profile
+class StringsProfileUz extends StringsProfileRu {
+	StringsProfileUz._(StringsUz root) : this._root = root, super._(root);
+
+	@override final StringsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Profil';
+	@override String get personalInfo => 'Shaxsiy ma\'lumotlar';
+	@override String get favoriteMechanics => 'Saqlangan ustalar';
+	@override String get password => 'Parol';
+	@override String get logout => 'Chiqish';
+}
+
+// Path: addCar
+class StringsAddCarUz extends StringsAddCarRu {
+	StringsAddCarUz._(StringsUz root) : this._root = root, super._(root);
+
+	@override final StringsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Mashina qo\'shish';
+	@override String get carPassport => 'Pasport seriya va raqami';
+	@override String get carVin => 'VIN-raqami';
+}
+
+// Path: mechanics
+class StringsMechanicsUz extends StringsMechanicsRu {
+	StringsMechanicsUz._(StringsUz root) : this._root = root, super._(root);
+
+	@override final StringsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Ustalar';
+}
+
 // Path: shared
 class StringsSharedUz extends StringsSharedRu {
 	StringsSharedUz._(StringsUz root) : this._root = root, super._(root);
@@ -422,6 +533,7 @@ class StringsSharedUz extends StringsSharedRu {
 	@override String get no => 'Yo\'q';
 	@override String get save => 'Saqlash';
 	@override String get next => 'Keyingi';
+	@override String get search => 'Qidirish';
 }
 
 /// Flat map(s) containing all translations.
@@ -455,6 +567,21 @@ extension on Translations {
 			case 'tyre.mileageToChange': return 'Пробег до следующей перекитки';
 			case 'tyre.xStyleChanged': return 'Х-образная перекитка?';
 			case 'home.addCar': return 'Добавить машину';
+			case 'settings.title': return 'Настройки';
+			case 'settings.theme': return 'Темная тема';
+			case 'settings.language': return 'Сменить язык';
+			case 'settings.share': return 'Поделиться';
+			case 'settings.support': return 'Поддержка';
+			case 'settings.faq': return 'Вопросы/ответы';
+			case 'profile.title': return 'Профиль';
+			case 'profile.personalInfo': return 'Персональные данные';
+			case 'profile.favoriteMechanics': return 'Сохраненные мастера';
+			case 'profile.password': return 'Пароль';
+			case 'profile.logout': return 'Выйти';
+			case 'addCar.title': return 'Добавить машину';
+			case 'addCar.carPassport': return 'Серия и номер паспорта';
+			case 'addCar.carVin': return 'VIN-номер';
+			case 'mechanics.title': return 'Мастера';
 			case 'shared.phoneNumber': return 'Номер телефона';
 			case 'shared.password': return 'Пароль';
 			case 'shared.repeatPassword': return 'Повторите пароль';
@@ -462,6 +589,7 @@ extension on Translations {
 			case 'shared.no': return 'Нет';
 			case 'shared.save': return 'Сохранить';
 			case 'shared.next': return 'Далее';
+			case 'shared.search': return 'Поиск';
 			default: return null;
 		}
 	}
@@ -496,6 +624,21 @@ extension on StringsUz {
 			case 'tyre.mileageToChange': return 'Keyingi g\'ildirak almashinuvi';
 			case 'tyre.xStyleChanged': return 'X-usulda almashtirildimi?';
 			case 'home.addCar': return 'Mashina qo\'shish';
+			case 'settings.title': return 'Sozlamalar';
+			case 'settings.theme': return 'Tungi rejim';
+			case 'settings.language': return 'Tilni o\'zgartirish';
+			case 'settings.share': return 'Ulashis';
+			case 'settings.support': return 'Bog\'lanish';
+			case 'settings.faq': return 'Savol/javoblar';
+			case 'profile.title': return 'Profil';
+			case 'profile.personalInfo': return 'Shaxsiy ma\'lumotlar';
+			case 'profile.favoriteMechanics': return 'Saqlangan ustalar';
+			case 'profile.password': return 'Parol';
+			case 'profile.logout': return 'Chiqish';
+			case 'addCar.title': return 'Mashina qo\'shish';
+			case 'addCar.carPassport': return 'Pasport seriya va raqami';
+			case 'addCar.carVin': return 'VIN-raqami';
+			case 'mechanics.title': return 'Ustalar';
 			case 'shared.phoneNumber': return 'Telefon raqam';
 			case 'shared.password': return 'Parol';
 			case 'shared.repeatPassword': return 'Parolni qaytaring';
@@ -503,6 +646,7 @@ extension on StringsUz {
 			case 'shared.no': return 'Yo\'q';
 			case 'shared.save': return 'Saqlash';
 			case 'shared.next': return 'Keyingi';
+			case 'shared.search': return 'Qidirish';
 			default: return null;
 		}
 	}

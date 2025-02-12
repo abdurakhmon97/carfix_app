@@ -1,4 +1,6 @@
+import 'package:carfix_app/presentation/add_car/add_car_screen.dart';
 import 'package:carfix_app/presentation/oil/oil_screen.dart';
+import 'package:carfix_app/presentation/settings/settings_screen.dart';
 import 'package:carfix_app/presentation/tyre/tyre_screen.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
 import 'package:carfix_app/utils/extensions.dart';
@@ -28,14 +30,19 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 16 + context.viewPaddingTop,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(
-                  Icons.settings,
-                  color: CarfixColors.primary,
+                CarfixGestureDetector(
+                  onTap: () => context.pushNamed(
+                    SettingsScreen.tag,
+                  ),
+                  child: const Icon(
+                    Icons.settings,
+                    color: CarfixColors.primary,
+                  ),
                 ),
-                Icon(
+                const Icon(
                   Icons.notifications_active,
                   color: CarfixColors.primary,
                 ),
@@ -45,30 +52,37 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               padding: const EdgeInsets.all(10),
               width: double.infinity,
-              decoration: const BoxDecoration(
-                color: CarfixColors.white,
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+              decoration: BoxDecoration(
+                color: context.colorScheme.onPrimary,
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(10),
+                ),
               ),
               child: Column(
                 children: [
                   const SizedBox(height: 30),
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: CarfixColors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.08),
-                          offset: const Offset(0, -2),
-                          blurRadius: 4,
-                        ),
-                      ],
+                  CarfixGestureDetector(
+                    onTap: () => context.pushNamed(
+                      AddCarScreen.tag,
                     ),
-                    child: const Icon(
-                      Icons.add,
-                      color: CarfixColors.primary,
-                      size: 48,
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: CarfixColors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.08),
+                            offset: const Offset(0, -2),
+                            blurRadius: 4,
+                          ),
+                        ],
+                      ),
+                      child: const Icon(
+                        Icons.add,
+                        color: CarfixColors.primary,
+                        size: 48,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 16),

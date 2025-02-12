@@ -37,6 +37,29 @@
   "home": {
     "addCar": "Mashina qo'shish"
   },
+  "settings": {
+    "title": "Sozlamalar",
+    "theme": "Tungi rejim",
+    "language": "Tilni o'zgartirish",
+    "share": "Ulashis",
+    "support": "Bog'lanish",
+    "faq": "Savol/javoblar"
+  },
+  "profile": {
+    "title": "Profil",
+    "personalInfo": "Shaxsiy ma'lumotlar",
+    "favoriteMechanics": "Saqlangan ustalar",
+    "password": "Parol",
+    "logout": "Chiqish"
+  },
+  "addCar": {
+    "title": "Mashina qo'shish",
+    "carPassport": "Pasport seriya va raqami",
+    "carVin": "VIN-raqami"
+  },
+  "mechanics": {
+    "title": "Ustalar"
+  },
   "shared": {
     "phoneNumber": "Telefon raqam",
     "password": "Parol",
@@ -44,7 +67,7 @@
     "yes": "Ha",
     "no": "Yo'q",
     "save": "Saqlash",
-    "next": "Keyingi"
-
+    "next": "Keyingi",
+    "search": "Qidirish"
   }
 }

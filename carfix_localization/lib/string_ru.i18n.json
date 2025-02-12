@@ -37,6 +37,29 @@
   "home": {
     "addCar": "Добавить машину"
   },
+  "settings": {
+    "title": "Настройки",
+    "theme": "Темная тема",
+    "language": "Сменить язык",
+    "share": "Поделиться",
+    "support": "Поддержка",
+    "faq": "Вопросы/ответы"
+  },
+  "profile": {
+    "title": "Профиль",
+    "personalInfo": "Персональные данные",
+    "favoriteMechanics": "Сохраненные мастера",
+    "password": "Пароль",
+    "logout": "Выйти"
+  },
+  "addCar": {
+    "title": "Добавить машину",
+    "carPassport": "Серия и номер паспорта",
+    "carVin": "VIN-номер"
+  },
+  "mechanics": {
+    "title": "Мастера"
+  },
   "shared": {
     "phoneNumber": "Номер телефона",
     "password": "Пароль",
@@ -44,6 +67,7 @@
     "yes": "Да",
     "no": "Нет",
     "save": "Сохранить",
-    "next": "Далее"
+    "next": "Далее",
+    "search": "Поиск"
   }
 }

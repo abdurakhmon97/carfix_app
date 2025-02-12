@@ -7,7 +7,7 @@ class CarfixButton extends StatelessWidget {
     super.key,
     required this.title,
     this.onTap,
-    required this.isLoading,
+    this.isLoading = false,
     this.leftIcon,
     this.rightIcon,
   });

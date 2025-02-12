@@ -1,13 +1,17 @@
 import 'package:alice/alice.dart';
 import 'package:alice/model/alice_configuration.dart';
+import 'package:carfix_app/presentation/add_car/add_car_screen.dart';
 import 'package:carfix_app/presentation/authorization/login_screen.dart';
 import 'package:carfix_app/presentation/authorization/registration_screen.dart';
 import 'package:carfix_app/presentation/authorization/user_type_select_page.dart';
 import 'package:carfix_app/presentation/bottom_nav_bar.dart';
+import 'package:carfix_app/presentation/mechanic_details/arguments.dart';
+import 'package:carfix_app/presentation/mechanic_details/mechanic_details_screen.dart';
 import 'package:carfix_app/presentation/oil/oil_screen.dart';
 import 'package:carfix_app/presentation/otp/otp_arguments.dart';
 import 'package:carfix_app/presentation/otp/otp_screen.dart';
 import 'package:carfix_app/presentation/service_list/service_list_screen.dart';
+import 'package:carfix_app/presentation/settings/settings_screen.dart';
 import 'package:carfix_app/presentation/splash/splash_screen.dart';
 import 'package:carfix_app/presentation/tyre/tyre_screen.dart';
 import 'package:flutter/foundation.dart';
@@ -74,12 +78,31 @@ class Navigation {
       GoRoute(
         path: UserTypeSelectPage.tag,
         name: UserTypeSelectPage.tag,
-        builder: (_, state) => const UserTypeSelectPage(),
+        builder: (_, __) => const UserTypeSelectPage(),
       ),
       GoRoute(
         path: BottomNavBar.tag,
         name: BottomNavBar.tag,
-        builder: (_, state) => const BottomNavBar(),
+        builder: (_, __) => const BottomNavBar(),
+        routes: [
+          GoRoute(
+            path: SettingsScreen.tag,
+            name: SettingsScreen.tag,
+            builder: (_, __) => const SettingsScreen(),
+          ),
+          GoRoute(
+            path: AddCarScreen.tag,
+            name: AddCarScreen.tag,
+            builder: (_, __) => const AddCarScreen(),
+          ),
+          GoRoute(
+            path: MechanicDetailsScreen.tag,
+            name: MechanicDetailsScreen.tag,
+            builder: (_, state) => MechanicDetailsScreen(
+              arguments: state.extra as MechanicDetailsArguments,
+            ),
+          ),
+        ],
       ),
     ],
   );

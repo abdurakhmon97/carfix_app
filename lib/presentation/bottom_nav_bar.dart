@@ -1,4 +1,6 @@
 import 'package:carfix_app/presentation/home/home_screen.dart';
+import 'package:carfix_app/presentation/mechanics/mechanics_screen.dart';
+import 'package:carfix_app/presentation/profile/profile_screen.dart';
 import 'package:carfix_app/utils/extensions.dart';
 import 'package:carfix_app/utils/uikit/carfix_colors.dart';
 import 'package:flutter/material.dart';
@@ -30,10 +32,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
-        children: [
+        children: const [
           HomeScreen(),
-          HomeScreen(),
-          HomeScreen(),
+          MechanicsScreen(),
+          ProfileScreen(),
         ],
       ),
       bottomNavigationBar: PopScope(
