@@ -20,14 +20,12 @@ class CarfixChips extends StatelessWidget {
         color: context.colorScheme.secondaryContainer,
         borderRadius: const BorderRadius.all(Radius.circular(4)),
       ),
-      child: Center(
-        child: Text(
-          title,
-          style: context.textTheme.labelSmall?.copyWith(
-            color: context.colorScheme.onSecondaryContainer,
-          ),
-          textAlign: TextAlign.center,
+      child: Text(
+        title,
+        style: context.textTheme.labelSmall?.copyWith(
+          color: context.colorScheme.onSecondaryContainer,
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }

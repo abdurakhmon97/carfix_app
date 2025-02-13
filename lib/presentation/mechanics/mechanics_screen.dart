@@ -68,29 +68,54 @@ class _MechanicsScreenState extends State<MechanicsScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              SvgPicture.asset(
-                                AppIcons.icCircleProfile,
-                                height: 44,
-                              ),
-                              const SizedBox(width: 8),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                              Row(
                                 children: [
-                                  Text(
-                                    'Ism Familiya',
-                                    style: context.textTheme.labelMedium,
+                                  SvgPicture.asset(
+                                    AppIcons.icCircleProfile,
+                                    height: 44,
                                   ),
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    'Ustani adresi',
-                                    style:
-                                        context.textTheme.labelSmall?.copyWith(
-                                      color: context.colorScheme.inverseSurface,
-                                    ),
+                                  const SizedBox(width: 8),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Ism Familiya',
+                                        style: context.textTheme.labelMedium,
+                                      ),
+                                      const SizedBox(height: 4),
+                                      Text(
+                                        'Ustani adresi',
+                                        style: context.textTheme.labelSmall
+                                            ?.copyWith(
+                                          color: context
+                                              .colorScheme.inverseSurface,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
-                              )
+                              ),
+                              const Spacer(),
+                              Row(
+                                children: List.generate(
+                                  5,
+                                  (index) => Container(
+                                    height: 16,
+                                    width: 16,
+                                    margin: const EdgeInsets.only(right: 2),
+                                    decoration: const ShapeDecoration(
+                                      color: Colors.yellow,
+                                      shape: StarBorder(
+                                        innerRadiusRatio: 0.5,
+                                        pointRounding: 0.4,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                           const SizedBox(height: 8),

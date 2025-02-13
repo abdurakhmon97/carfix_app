@@ -60,6 +60,15 @@
   "mechanics": {
     "title": "Ustalar"
   },
+  "mechanicDetails": {
+    "fio": "Ustaning ismi",
+    "summary": "Usta haqida",
+    "services": "Xizmatlar",
+    "contacts": "Bog'lanish",
+    "address": "Manzil",
+    "call": "Qo'ng'iroq",
+    "direction": "Yo'nalish"
+  },
   "shared": {
     "phoneNumber": "Telefon raqam",
     "password": "Parol",

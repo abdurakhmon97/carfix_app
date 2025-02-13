@@ -60,6 +60,15 @@
   "mechanics": {
     "title": "Мастера"
   },
+  "mechanicDetails": {
+    "fio": "Имя мастера",
+    "summary": "О мастере",
+    "services": "Сервисы",
+    "contacts": "Контакты",
+    "address": "Адрес",
+    "call": "Позвонить",
+    "direction": "Навигация"
+  },
   "shared": {
     "phoneNumber": "Номер телефона",
     "password": "Пароль",

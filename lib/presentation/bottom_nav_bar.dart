@@ -53,7 +53,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           selectedFontSize: 0,
           unselectedFontSize: 0,
           backgroundColor: context.colorScheme.primary,
-          iconSize: 24,
+          iconSize: 48,
           items: [
             BottomNavigationBarItem(
               icon: NavBarItem(
@@ -98,6 +98,7 @@ class NavBarItem extends StatelessWidget {
     return Icon(
       image,
       color: selected ? CarfixColors.primary : CarfixColors.white,
+      size: 24,
     );
   }
 }

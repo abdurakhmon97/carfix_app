@@ -29,32 +29,40 @@ class SettingsScreen extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 16),
-            Row(
-              children: [
-                Expanded(
-                  child: IconTitleWidget(
-                    icon: SvgPicture.asset(AppIcons.icThemeChange),
-                    title: tr.theme,
-                    isChevron: false,
-                  ),
-                ),
-                BlocBuilder<ThemeBloc, ThemeState>(
-                  builder: (_, state) {
-                    final isDark =
-                        (state as ThemeLoaded).mode == ThemeMode.dark;
-                    return Switch(
-                      value: isDark,
-                      onChanged: (_) {
-                        BlocProvider.of<ThemeBloc>(context).add(
-                          ChangeTheme(
-                            isDark ? ThemeMode.light : ThemeMode.dark,
-                          ),
-                        );
-                      },
+            BlocBuilder<ThemeBloc, ThemeState>(
+              builder: (_, state) {
+                final isDark = (state as ThemeLoaded).mode == ThemeMode.dark;
+                return CarfixGestureDetector(
+                  onTap: () {
+                    BlocProvider.of<ThemeBloc>(context).add(
+                      ChangeTheme(
+                        isDark ? ThemeMode.light : ThemeMode.dark,
+                      ),
                     );
                   },
-                ),
-              ],
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: IconTitleWidget(
+                          icon: SvgPicture.asset(AppIcons.icThemeChange),
+                          title: tr.theme,
+                          isChevron: false,
+                        ),
+                      ),
+                      Switch(
+                        value: isDark,
+                        onChanged: (_) {
+                          BlocProvider.of<ThemeBloc>(context).add(
+                            ChangeTheme(
+                              isDark ? ThemeMode.light : ThemeMode.dark,
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
             const SizedBox(height: 16),
             IconTitleWidget(

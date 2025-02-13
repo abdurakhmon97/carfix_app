@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 90 (45 per locale)
+/// Strings: 104 (52 per locale)
 ///
-/// Built on 2025-02-12 at 10:54 UTC
+/// Built on 2025-02-13 at 06:14 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -162,6 +162,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final StringsProfileRu profile = StringsProfileRu._(_root);
 	late final StringsAddCarRu addCar = StringsAddCarRu._(_root);
 	late final StringsMechanicsRu mechanics = StringsMechanicsRu._(_root);
+	late final StringsMechanicDetailsRu mechanicDetails = StringsMechanicDetailsRu._(_root);
 	late final StringsSharedRu shared = StringsSharedRu._(_root);
 }
 
@@ -312,6 +313,22 @@ class StringsMechanicsRu {
 	String get title => 'Мастера';
 }
 
+// Path: mechanicDetails
+class StringsMechanicDetailsRu {
+	StringsMechanicDetailsRu._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get fio => 'Имя мастера';
+	String get summary => 'О мастере';
+	String get services => 'Сервисы';
+	String get contacts => 'Контакты';
+	String get address => 'Адрес';
+	String get call => 'Позвонить';
+	String get direction => 'Навигация';
+}
+
 // Path: shared
 class StringsSharedRu {
 	StringsSharedRu._(this._root);
@@ -368,6 +385,7 @@ class StringsUz extends Translations {
 	@override late final StringsProfileUz profile = StringsProfileUz._(_root);
 	@override late final StringsAddCarUz addCar = StringsAddCarUz._(_root);
 	@override late final StringsMechanicsUz mechanics = StringsMechanicsUz._(_root);
+	@override late final StringsMechanicDetailsUz mechanicDetails = StringsMechanicDetailsUz._(_root);
 	@override late final StringsSharedUz shared = StringsSharedUz._(_root);
 }
 
@@ -519,6 +537,22 @@ class StringsMechanicsUz extends StringsMechanicsRu {
 	@override String get title => 'Ustalar';
 }
 
+// Path: mechanicDetails
+class StringsMechanicDetailsUz extends StringsMechanicDetailsRu {
+	StringsMechanicDetailsUz._(StringsUz root) : this._root = root, super._(root);
+
+	@override final StringsUz _root; // ignore: unused_field
+
+	// Translations
+	@override String get fio => 'Ustaning ismi';
+	@override String get summary => 'Usta haqida';
+	@override String get services => 'Xizmatlar';
+	@override String get contacts => 'Bog\'lanish';
+	@override String get address => 'Manzil';
+	@override String get call => 'Qo\'ng\'iroq';
+	@override String get direction => 'Yo\'nalish';
+}
+
 // Path: shared
 class StringsSharedUz extends StringsSharedRu {
 	StringsSharedUz._(StringsUz root) : this._root = root, super._(root);
@@ -582,6 +616,13 @@ extension on Translations {
 			case 'addCar.carPassport': return 'Серия и номер паспорта';
 			case 'addCar.carVin': return 'VIN-номер';
 			case 'mechanics.title': return 'Мастера';
+			case 'mechanicDetails.fio': return 'Имя мастера';
+			case 'mechanicDetails.summary': return 'О мастере';
+			case 'mechanicDetails.services': return 'Сервисы';
+			case 'mechanicDetails.contacts': return 'Контакты';
+			case 'mechanicDetails.address': return 'Адрес';
+			case 'mechanicDetails.call': return 'Позвонить';
+			case 'mechanicDetails.direction': return 'Навигация';
 			case 'shared.phoneNumber': return 'Номер телефона';
 			case 'shared.password': return 'Пароль';
 			case 'shared.repeatPassword': return 'Повторите пароль';
@@ -639,6 +680,13 @@ extension on StringsUz {
 			case 'addCar.carPassport': return 'Pasport seriya va raqami';
 			case 'addCar.carVin': return 'VIN-raqami';
 			case 'mechanics.title': return 'Ustalar';
+			case 'mechanicDetails.fio': return 'Ustaning ismi';
+			case 'mechanicDetails.summary': return 'Usta haqida';
+			case 'mechanicDetails.services': return 'Xizmatlar';
+			case 'mechanicDetails.contacts': return 'Bog\'lanish';
+			case 'mechanicDetails.address': return 'Manzil';
+			case 'mechanicDetails.call': return 'Qo\'ng\'iroq';
+			case 'mechanicDetails.direction': return 'Yo\'nalish';
 			case 'shared.phoneNumber': return 'Telefon raqam';
 			case 'shared.password': return 'Parol';
 			case 'shared.repeatPassword': return 'Parolni qaytaring';
