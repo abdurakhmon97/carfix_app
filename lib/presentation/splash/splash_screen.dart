@@ -17,7 +17,7 @@ class SplashScreen extends StatefulWidget {
   static const String tag = '/splash';
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen>
