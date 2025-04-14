@@ -1,9 +1,12 @@
 import 'dart:ui';
 
+import 'package:carfix_app/application/auth/auth_bloc.dart';
 import 'package:carfix_app/application/language/language_bloc.dart';
 import 'package:carfix_app/application/theme/theme_bloc.dart';
 import 'package:carfix_app/data/storage/shared_pref_storage.dart';
+import 'package:carfix_app/di/di_container.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
+import 'package:carfix_app/utils/inject.dart';
 import 'package:carfix_app/utils/navigation.dart';
 import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,6 +20,7 @@ void main() async {
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
   );
+  await initDi();
   await SharedPrefStorage().initPrefs();
   runApp(
     TranslationProvider(child: const MyApp()),
@@ -43,6 +47,7 @@ class _MyAppState extends State<MyApp> {
           BlocProvider(
             create: (_) => LanguageBloc()..add(LoadLocale()),
           ),
+          BlocProvider(create: (_) => AuthBloc(inject())),
         ],
         child: BlocBuilder<ThemeBloc, ThemeState>(
           builder: (context, state) {
