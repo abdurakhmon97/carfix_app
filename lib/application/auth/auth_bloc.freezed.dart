@@ -16,7 +16,6 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AuthEvent {
   String get phone;
-  String get username;
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -30,17 +29,15 @@ mixin _$AuthEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is AuthEvent &&
-            (identical(other.phone, phone) || other.phone == phone) &&
-            (identical(other.username, username) ||
-                other.username == username));
+            (identical(other.phone, phone) || other.phone == phone));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, phone, username);
+  int get hashCode => Object.hash(runtimeType, phone);
 
   @override
   String toString() {
-    return 'AuthEvent(phone: $phone, username: $username)';
+    return 'AuthEvent(phone: $phone)';
   }
 }
 
@@ -49,7 +46,7 @@ abstract mixin class $AuthEventCopyWith<$Res> {
   factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) _then) =
       _$AuthEventCopyWithImpl;
   @useResult
-  $Res call({String phone, String username});
+  $Res call({String phone});
 }
 
 /// @nodoc
@@ -65,16 +62,11 @@ class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
   @override
   $Res call({
     Object? phone = null,
-    Object? username = null,
   }) {
     return _then(_self.copyWith(
       phone: null == phone
           ? _self.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _self.username
-          : username // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -83,12 +75,10 @@ class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
 /// @nodoc
 
 class _Register implements AuthEvent {
-  const _Register({required this.phone, required this.username});
+  const _Register({required this.phone});
 
   @override
   final String phone;
-  @override
-  final String username;
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -103,17 +93,15 @@ class _Register implements AuthEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Register &&
-            (identical(other.phone, phone) || other.phone == phone) &&
-            (identical(other.username, username) ||
-                other.username == username));
+            (identical(other.phone, phone) || other.phone == phone));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, phone, username);
+  int get hashCode => Object.hash(runtimeType, phone);
 
   @override
   String toString() {
-    return 'AuthEvent.register(phone: $phone, username: $username)';
+    return 'AuthEvent.register(phone: $phone)';
   }
 }
 
@@ -124,7 +112,7 @@ abstract mixin class _$RegisterCopyWith<$Res>
       __$RegisterCopyWithImpl;
   @override
   @useResult
-  $Res call({String phone, String username});
+  $Res call({String phone});
 }
 
 /// @nodoc
@@ -140,16 +128,11 @@ class __$RegisterCopyWithImpl<$Res> implements _$RegisterCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   $Res call({
     Object? phone = null,
-    Object? username = null,
   }) {
     return _then(_Register(
       phone: null == phone
           ? _self.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      username: null == username
-          ? _self.username
-          : username // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -179,13 +162,13 @@ class $AuthStateCopyWith<$Res> {
 
 /// @nodoc
 
-class _Initial implements AuthState {
-  const _Initial();
+class Initial implements AuthState {
+  const Initial();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Initial);
+        (other.runtimeType == runtimeType && other is Initial);
   }
 
   @override
@@ -199,13 +182,13 @@ class _Initial implements AuthState {
 
 /// @nodoc
 
-class _Loading implements AuthState {
-  const _Loading();
+class Loading implements AuthState {
+  const Loading();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _Loading);
+        (other.runtimeType == runtimeType && other is Loading);
   }
 
   @override
@@ -219,29 +202,28 @@ class _Loading implements AuthState {
 
 /// @nodoc
 
-class _Error implements AuthState {
-  const _Error(this.error);
+class Error implements AuthState {
+  const Error(this.error);
 
-  final ApiResponseError? error;
+  final ErrorEntity error;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
-  _$ErrorCopyWith<_Error> get copyWith =>
-      __$ErrorCopyWithImpl<_Error>(this, _$identity);
+  $ErrorCopyWith<Error> get copyWith =>
+      _$ErrorCopyWithImpl<Error>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Error &&
-            const DeepCollectionEquality().equals(other.error, error));
+            other is Error &&
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @override
   String toString() {
@@ -250,44 +232,44 @@ class _Error implements AuthState {
 }
 
 /// @nodoc
-abstract mixin class _$ErrorCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) _then) =
-      __$ErrorCopyWithImpl;
+abstract mixin class $ErrorCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
+  factory $ErrorCopyWith(Error value, $Res Function(Error) _then) =
+      _$ErrorCopyWithImpl;
   @useResult
-  $Res call({ApiResponseError? error});
+  $Res call({ErrorEntity error});
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res> implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(this._self, this._then);
+class _$ErrorCopyWithImpl<$Res> implements $ErrorCopyWith<$Res> {
+  _$ErrorCopyWithImpl(this._self, this._then);
 
-  final _Error _self;
-  final $Res Function(_Error) _then;
+  final Error _self;
+  final $Res Function(Error) _then;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
-    return _then(_Error(
-      freezed == error
+    return _then(Error(
+      null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
-              as ApiResponseError?,
+              as ErrorEntity,
     ));
   }
 }
 
 /// @nodoc
 
-class _RegisterSuccess implements AuthState {
-  const _RegisterSuccess();
+class RegisterSuccess implements AuthState {
+  const RegisterSuccess();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _RegisterSuccess);
+        (other.runtimeType == runtimeType && other is RegisterSuccess);
   }
 
   @override

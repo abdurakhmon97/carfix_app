@@ -18,12 +18,12 @@ class _AuthApi implements AuthApi {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<ApiResponse<String>> register(String phone, String username) async {
+  Future<void> register(String phone) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = {'phone': phone, 'username': username};
-    final _options = _setStreamType<ApiResponse<String>>(
+    final _data = {'phone': phone};
+    final _options = _setStreamType<void>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -33,18 +33,7 @@ class _AuthApi implements AuthApi {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late ApiResponse<String> _value;
-    try {
-      _value = ApiResponse<String>.fromJson(
-        _result.data!,
-        (json) => json as String,
-      );
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
+    await _dio.fetch<void>(_options);
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

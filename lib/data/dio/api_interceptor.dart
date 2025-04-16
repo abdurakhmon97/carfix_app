@@ -139,3 +139,127 @@ class AuthorizedRequestInterceptor extends CommonRequestInterceptor {
     }
   }
 }
+
+/*class AuthInterceptor extends QueuedInterceptor {
+  final Dio dio;
+
+  Completer<void>? _refreshCompleter;
+
+  AuthInterceptor({
+    required this.dio,
+  });
+
+  @override
+  void onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
+    final secureStorage = SecureStorageRepository();
+    final token = await secureStorage.getToken();
+    log('ACCESS TOKEN ${token?.accessToken}');
+
+    options.headers.addAll({
+      HttpHeaders.acceptHeader: 'application/json',
+    });
+
+    if (!options.headers.containsKey('with_out_token')) {
+      options.headers.addAll({'Authorization': 'Bearer ${token?.accessToken}'});
+    } else {
+      options.headers.remove('with_out_token');
+    }
+    handler.next(options);
+  }
+
+  @override
+  void onError(DioException err, ErrorInterceptorHandler handler) async {
+    final statusCode = err.response?.statusCode ?? 0;
+    final requestOptions = err.requestOptions;
+
+    if (statusCode == 401) {
+      // If refresh is already in progress, wait for it
+      if (_refreshCompleter != null) {
+        await _refreshCompleter!.future;
+      } else {
+        // Start the refresh process
+        _refreshCompleter = Completer();
+        try {
+          */ /*final newTokens = authRepo.refreshToken();
+          authRepo.saveToken(newTokens);*/ /*
+          print('refreshing token in new interceptor');
+          _refreshCompleter?.complete();
+        } catch (e) {
+          _refreshCompleter?.completeError(e);
+          handler.next(err); // forward original 401
+          return;
+        } finally {
+          _refreshCompleter = null;
+        }
+      }
+
+      try {
+        // Retry the original request after refresh
+        final secureStorage = SecureStorageRepository();
+        final newToken = await secureStorage.getToken();
+        final clonedResponse =
+        await _retry(requestOptions, newToken?.accessToken ?? "");
+        handler.resolve(clonedResponse);
+      } catch (e) {
+        handler.reject(err); // Retry failed
+      }
+    } else {
+      handler.next(err);
+    }
+  }
+
+  Future<Response<dynamic>> _retry(
+      RequestOptions requestOptions, String token) async {
+    final clonedData = _cloneData(requestOptions.data);
+
+    final _dio = Dio(dio.options);
+    _dio.interceptors.add(QueuedInterceptorsWrapper(
+      onError: (error, handler) {
+        handler.next(error);
+      },
+    ));
+    final options = Options(
+      method: requestOptions.method,
+      headers: {
+        ...requestOptions.headers,
+        'Authorization': 'Bearer $token',
+      },
+      contentType: requestOptions.contentType,
+      responseType: requestOptions.responseType,
+      sendTimeout: requestOptions.sendTimeout,
+      receiveTimeout: requestOptions.receiveTimeout,
+      extra: requestOptions.extra,
+    );
+
+    return _dio.request(
+      requestOptions.path,
+      data: clonedData,
+      queryParameters: requestOptions.queryParameters,
+      options: options,
+    );
+  }
+
+  dynamic _cloneData(dynamic data) {
+    if (data is FormData) {
+      final newFormData = FormData();
+      for (final field in data.fields) {
+        newFormData.fields.add(MapEntry(field.key, field.value));
+      }
+      for (final file in data.files) {
+        newFormData.files.add(MapEntry(
+          file.key,
+          file.value.clone(),
+        ));
+      }
+      return newFormData;
+    }
+
+    // For plain JSON/body maps etc
+    if (data is Map) {
+      return Map<String, dynamic>.from(data);
+    }
+
+    return data;
+  }
+}*/

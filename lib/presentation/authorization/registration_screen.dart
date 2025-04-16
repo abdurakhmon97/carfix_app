@@ -1,6 +1,7 @@
 import 'package:carfix_app/presentation/otp/otp_arguments.dart';
 import 'package:carfix_app/presentation/otp/otp_screen.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
+import 'package:carfix_app/utils/uikit/carfix_phone_field.dart';
 import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -32,9 +33,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     final tr = context.tr;
     return Scaffold(
-      appBar: CarfixAppBar(
-        title: tr.registration.title,
-      ),
+      appBar: CarfixAppBar(title: tr.registration.title),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -45,12 +44,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               const SizedBox(height: 24),
-              CarfixTextField(
-                controller: _usernameController,
-                inputType: TextInputType.phone,
-                hintText: tr.shared.phoneNumber,
-              ),
-              const SizedBox(height: 16),
+              CarfixPhoneField(controller: _usernameController),
+              /*const SizedBox(height: 16),
               CarfixTextField(
                 controller: _passwordController,
                 hintText: tr.shared.password,
@@ -59,7 +54,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               CarfixTextField(
                 controller: _repeatPasswordController,
                 hintText: tr.shared.repeatPassword,
-              ),
+              ),*/
               const SizedBox(height: 24),
               CarfixButton(
                 title: tr.registration.title,

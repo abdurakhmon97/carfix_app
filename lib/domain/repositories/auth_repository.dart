@@ -3,6 +3,5 @@ abstract class AuthRepository {
 
   Future<void> register({
     required String phone,
-    required String username,
   });
 }
