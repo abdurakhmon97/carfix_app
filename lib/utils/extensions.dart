@@ -43,3 +43,14 @@ extension SvgPictureExt on SvgPicture {
     );
   }
 }
+
+extension StringExt on String {
+  String removeSpacesForAmount() {
+    return replaceAll(RegExp(r'[^0-9.]'), '');
+  }
+
+  String removeSpaces() {
+    final result = replaceAll(RegExp(r'\s+'), '');
+    return result;
+  }
+}

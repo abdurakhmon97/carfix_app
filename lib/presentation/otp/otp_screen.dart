@@ -1,8 +1,10 @@
+import 'package:carfix_app/application/auth/auth_bloc.dart';
 import 'package:carfix_app/presentation/otp/otp_arguments.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
 import 'package:carfix_app/utils/extensions.dart';
 import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpScreen extends StatefulWidget {
@@ -74,10 +76,27 @@ class _OtpScreenState extends State<OtpScreen> {
               ),
             ),
             const SizedBox(height: 24),
-            CarfixButton(
-              title: tr.otp.verify,
-              isLoading: false,
-              onTap: () {},
+            BlocBuilder<AuthBloc, AuthState>(
+              builder: (_, state) {
+                return switch (state) {
+                  Loading() => CarfixButton(
+                      title: tr.otp.verify,
+                      isLoading: true,
+                      onTap: () {},
+                    ),
+                  _ => CarfixButton(
+                      title: tr.otp.verify,
+                      isLoading: false,
+                      onTap: () {
+                        BlocProvider.of<AuthBloc>(context).add(
+                          AuthEvent.register(
+                            phone: _args.phoneNumber.removeSpaces(),
+                          ),
+                        );
+                      },
+                    ),
+                };
+              },
             ),
             const SizedBox(height: 24),
             Row(

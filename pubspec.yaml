@@ -21,17 +21,26 @@ dependencies:
   shared_preferences: ^2.3.2
   flutter_bloc: ^8.1.6
   bloc: ^8.1.4
-  equatable: ^2.0.5
   pinput: ^5.0.0
-
+  injectable: ^2.5.0
+  get_it: ^8.0.3
+  freezed: ^3.0.6
+  retrofit: ^4.4.2
+  dio: ^5.8.0+1
   carfix_localization:
     path: carfix_localization
+  freezed_annotation: ^3.0.0
+  json_annotation: ^4.9.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^4.0.0
   build_runner: ^2.4.13
+  injectable_generator: ^2.7.0
+  json_serializable: ^6.9.4
+  retrofit_generator: ^9.1.9
 
 flutter:
   uses-material-design: true
