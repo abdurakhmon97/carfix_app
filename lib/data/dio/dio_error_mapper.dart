@@ -7,17 +7,33 @@ class DioErrorMapper {
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
       case DioExceptionType.receiveTimeout:
-        return const ErrorEntity(message: "Connection timeout");
+        return const ErrorEntity(
+          message: "Connection timeout",
+          messageUz: "Ulanish vaqti tugadi",
+          messageRu: "Время ожидания подключения истекло",
+        );
       case DioExceptionType.badResponse:
-        final statusCode = exception.response?.statusCode ?? 0;
-        final message = exception.response?.statusMessage ?? "Unknown error";
-        return ErrorEntity(message: message, code: statusCode);
+        return ErrorEntity.fromJson(
+          exception.response?.data['error'],
+        );
       case DioExceptionType.cancel:
-        return const ErrorEntity(message: "Request was cancelled");
+        return const ErrorEntity(
+          message: "Request was cancelled",
+          messageUz: "Soʻrov bekor qilindi",
+          messageRu: "Запрос был отменён",
+        );
       case DioExceptionType.connectionError:
-        return const ErrorEntity(message: "No internet connection");
+        return const ErrorEntity(
+          message: "No internet connection",
+          messageUz: "Internet aloqasi yoʻq",
+          messageRu: "Нет подключения к интернету",
+        );
       default:
-        return ErrorEntity(message: exception.message ?? "Unexpected error");
+        return ErrorEntity(
+          message: exception.message ?? "Unexpected error",
+          messageUz: "Kutilmagan xatolik",
+          messageRu: "Неожиданная ошибка",
+        );
     }
   }
 }

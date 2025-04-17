@@ -1,11 +1,7 @@
-import 'package:carfix_app/application/language/language_bloc.dart';
 import 'package:carfix_app/presentation/authorization/login_screen.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
 import 'package:carfix_app/utils/extensions.dart';
-import 'package:carfix_app/utils/uikit/dialog_manager.dart';
-import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
@@ -24,7 +20,6 @@ class _SplashScreenState extends State<SplashScreen>
     with TickerProviderStateMixin {
   late AnimationController lottieAnimation;
 
-  final _langBloc = LanguageBloc();
   ValueNotifier<bool> expanded = ValueNotifier(false);
 
   final duration = const Duration(seconds: 1);
@@ -42,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen>
     Future.delayed(duration).then((_) {
       expanded.value = true;
       lottieAnimation.forward().then(
-            (_) => _actionOnLanguage(_langBloc.state),
+            (_) => context.goNamed(LoginScreen.tag),
           );
     });
   }
@@ -54,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.dispose();
   }
 
-  void _actionOnLanguage(LanguageState state) {
+  /*void _actionOnLanguage(LanguageState state) {
     if (state is CheckLocaleInStorageSuccess && !state.isSelected) {
       DialogManager.openBottomSheet(
         context: context,
@@ -99,59 +94,49 @@ class _SplashScreenState extends State<SplashScreen>
     } else {
       context.goNamed(LoginScreen.tag);
     }
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => _langBloc
-        ..add(
-          CheckLocaleInStorage(),
-        ),
-      child: BlocBuilder<LanguageBloc, LanguageState>(
-        builder: (context, state) {
-          return Scaffold(
-            backgroundColor: context.colorScheme.onPrimary,
-            body: SizedBox(
-              width: context.screenSize.width,
-              height: context.screenSize.height,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  AnimatedContainer(
-                    padding: const EdgeInsets.all(8),
-                    duration: duration,
-                    curve: Curves.fastOutSlowIn,
-                    child: SvgPicture.asset(
-                      AppIcons.icCarfixLogo,
-                      height: _appLogoHeight,
-                      fit: BoxFit.fitWidth,
-                    ),
-                  ),
-                  ValueListenableBuilder(
-                    valueListenable: expanded,
-                    builder: (_, bool expanded, __) {
-                      return AnimatedCrossFade(
-                        firstCurve: Curves.fastOutSlowIn,
-                        crossFadeState: !expanded
-                            ? CrossFadeState.showFirst
-                            : CrossFadeState.showSecond,
-                        duration: duration,
-                        firstChild: Container(),
-                        secondChild: Text(
-                          "Carfix",
-                          style: context.textTheme.headlineMedium,
-                        ),
-                        alignment: Alignment.centerLeft,
-                        sizeCurve: Curves.easeInOut,
-                      );
-                    },
-                  ),
-                ],
+    return Scaffold(
+      backgroundColor: context.colorScheme.onPrimary,
+      body: SizedBox(
+        width: context.screenSize.width,
+        height: context.screenSize.height,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AnimatedContainer(
+              padding: const EdgeInsets.all(8),
+              duration: duration,
+              curve: Curves.fastOutSlowIn,
+              child: SvgPicture.asset(
+                AppIcons.icCarfixLogo,
+                height: _appLogoHeight,
+                fit: BoxFit.fitWidth,
               ),
             ),
-          );
-        },
+            ValueListenableBuilder(
+              valueListenable: expanded,
+              builder: (_, bool expanded, __) {
+                return AnimatedCrossFade(
+                  firstCurve: Curves.fastOutSlowIn,
+                  crossFadeState: !expanded
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
+                  duration: duration,
+                  firstChild: Container(),
+                  secondChild: Text(
+                    "Carfix",
+                    style: context.textTheme.headlineMedium,
+                  ),
+                  alignment: Alignment.centerLeft,
+                  sizeCurve: Curves.easeInOut,
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

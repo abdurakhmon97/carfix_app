@@ -84,5 +84,5 @@ abstract class DioModule {
     return Dio(options);
   }
 
-  String _buildBaseUrl(String host) => 'https://$host/';
+  String _buildBaseUrl(String host) => host;
 }

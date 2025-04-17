@@ -1,5 +1,6 @@
 import 'package:carfix_app/data/api/auth/auth_api.dart';
 import 'package:carfix_app/data/repositories/base_repository.dart';
+import 'package:carfix_app/domain/entities/result_entity.dart';
 import 'package:carfix_app/domain/repositories/auth_repository.dart';
 import 'package:injectable/injectable.dart';
 
@@ -10,9 +11,9 @@ class AuthRepositoryImpl extends BaseRepository implements AuthRepository {
   final AuthApi _authApi;
 
   @override
-  Future<void> register({
+  Future<ResultEntity<void>> register({
     required String phone,
-  }) async {
-    await safeCall(() => _authApi.register(phone));
+  }) {
+    return safeCall(() => _authApi.register(phone));
   }
 }

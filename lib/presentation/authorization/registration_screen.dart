@@ -16,7 +16,7 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
-  final _formKey = GlobalKey<FormFieldState>();
+  final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   final _repeatPasswordController = TextEditingController();
@@ -44,7 +44,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               const SizedBox(height: 24),
-              CarfixPhoneField(controller: _usernameController),
+              CarfixPhoneField(
+                controller: _usernameController,
+                validationModes: const [ValidationMode.onUnFocus],
+                validator: (_) {
+                  if (_usernameController.text.length != 18) {
+                    return tr.registration.enterValidNumber;
+                  }
+                  return null;
+                },
+              ),
               /*const SizedBox(height: 16),
               CarfixTextField(
                 controller: _passwordController,
@@ -59,10 +68,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               CarfixButton(
                 title: tr.registration.title,
                 isLoading: false,
-                onTap: () => context.pushNamed(
-                  OtpScreen.tag,
-                  extra: OtpArguments(phoneNumber: _usernameController.text),
-                ),
+                onTap: () {
+                  if (_formKey.currentState?.validate() == true) {
+                    context.pushNamed(
+                      OtpScreen.tag,
+                      extra:
+                          OtpArguments(phoneNumber: _usernameController.text),
+                    );
+                  }
+                },
               ),
             ],
           ),

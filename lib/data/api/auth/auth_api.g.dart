@@ -27,7 +27,7 @@ class _AuthApi implements AuthApi {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/api/v1/register',
+            'api/v1/register',
             queryParameters: queryParameters,
             data: _data,
           )

@@ -6,7 +6,8 @@
     "register": "Ro'yxatdan o'tish"
   },
   "registration": {
-    "title": "Ro'yxatdan o'tish"
+    "title": "Ro'yxatdan o'tish",
+    "enterValidNumber": "Telefon raqamni + 998 00 000 00 00 ko'rinishida kiriting"
   },
   "userSelectType": {
     "driver": "Haydovchi",
@@ -18,9 +19,8 @@
   "otp": {
     "verification": "SMS tasdiqlash",
     "sentSmsTo(rich)": "SMS kod $number raqamiga yuborildi",
-    "didNotReceive": "Kodni olmadingizmi?",
-    "retry": "Qayta jo'natish",
-    "verify": "Tasdiqlash"
+    "verify": "Tasdiqlash",
+    "openTelegram": "SMS tasdiqlashni olish uchun shu yerga bosing va Telegram’ni oching"
   },
   "oil": {
     "title": "Moy almashtirish",

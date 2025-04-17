@@ -1,5 +1,5 @@
-import 'package:carfix_app/application/language/language_bloc.dart';
-import 'package:carfix_app/application/theme/theme_bloc.dart';
+import 'package:carfix_app/application/language_provider.dart';
+import 'package:carfix_app/application/theme_provider.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
 import 'package:carfix_app/utils/extensions.dart';
 import 'package:carfix_app/utils/uikit/dialog_manager.dart';
@@ -18,6 +18,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tr = context.tr.settings;
+    final isDark = context.read<ThemeProvider>().mode == ThemeMode.dark;
     return Scaffold(
       appBar: CarfixAppBar(
         title: tr.title,
@@ -29,40 +30,31 @@ class SettingsScreen extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 16),
-            BlocBuilder<ThemeBloc, ThemeState>(
-              builder: (_, state) {
-                final isDark = (state as ThemeLoaded).mode == ThemeMode.dark;
-                return CarfixGestureDetector(
-                  onTap: () {
-                    BlocProvider.of<ThemeBloc>(context).add(
-                      ChangeTheme(
-                        isDark ? ThemeMode.light : ThemeMode.dark,
-                      ),
+            CarfixGestureDetector(
+              onTap: () {
+                context.read<ThemeProvider>().setTheme(
+                      isDark ? ThemeMode.light : ThemeMode.dark,
                     );
-                  },
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: IconTitleWidget(
-                          icon: SvgPicture.asset(AppIcons.icThemeChange),
-                          title: tr.theme,
-                          isChevron: false,
-                        ),
-                      ),
-                      Switch(
-                        value: isDark,
-                        onChanged: (_) {
-                          BlocProvider.of<ThemeBloc>(context).add(
-                            ChangeTheme(
-                              isDark ? ThemeMode.light : ThemeMode.dark,
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                );
               },
+              child: Row(
+                children: [
+                  Expanded(
+                    child: IconTitleWidget(
+                      icon: SvgPicture.asset(AppIcons.icThemeChange),
+                      title: tr.theme,
+                      isChevron: false,
+                    ),
+                  ),
+                  Switch(
+                    value: isDark,
+                    onChanged: (_) {
+                      context.read<ThemeProvider>().setTheme(
+                            isDark ? ThemeMode.light : ThemeMode.dark,
+                          );
+                    },
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 16),
             IconTitleWidget(
@@ -87,9 +79,9 @@ class SettingsScreen extends StatelessWidget {
                             title: 'O\'zbek',
                             isLoading: false,
                             onTap: () {
-                              BlocProvider.of<LanguageBloc>(context).add(
-                                const SwitchLocale(locale: AppLocale.uz),
-                              );
+                              context
+                                  .read<LanguageProvider>()
+                                  .setLocale(AppLocale.uz);
                               context.pop();
                             },
                           ),
@@ -98,9 +90,9 @@ class SettingsScreen extends StatelessWidget {
                             title: 'Русский',
                             isLoading: false,
                             onTap: () {
-                              BlocProvider.of<LanguageBloc>(context).add(
-                                const SwitchLocale(locale: AppLocale.ru),
-                              );
+                              context
+                                  .read<LanguageProvider>()
+                                  .setLocale(AppLocale.ru);
                               context.pop();
                             },
                           ),

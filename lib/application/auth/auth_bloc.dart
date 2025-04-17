@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:carfix_app/domain/entities/error_entity.dart';
+import 'package:carfix_app/domain/entities/result_entity.dart';
 import 'package:carfix_app/domain/repositories/auth_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -18,9 +19,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   void _onRegister(_Register event, Emitter<AuthState> emit) async {
     emit(const AuthState.loading());
-    await _repo.register(
+    final result = await _repo.register(
       phone: event.phone,
     );
-    emit(const AuthState.registerSuccess());
+    switch (result) {
+      case SuccessEntity<void>():
+        emit(const AuthState.registerSuccess());
+      case FailureEntity<void>():
+        emit(AuthState.error(result.error));
+    }
   }
 }

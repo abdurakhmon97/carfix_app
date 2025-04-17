@@ -6,7 +6,7 @@
 /// Locales: 2
 /// Strings: 104 (52 per locale)
 ///
-/// Built on 2025-02-13 at 06:14 UTC
+/// Built on 2025-04-17 at 08:31 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -186,6 +186,7 @@ class StringsRegistrationRu {
 
 	// Translations
 	String get title => 'Регистрация';
+	String get enterValidNumber => 'Введите номер телефона в формате + 998 00 000 00 00';
 }
 
 // Path: userSelectType
@@ -221,9 +222,8 @@ class StringsOtpRu {
 		const TextSpan(text: 'СМС с кодом отправлен на номер '),
 		number,
 	]);
-	String get didNotReceive => 'Не получили код?';
-	String get retry => 'Отправить снова';
 	String get verify => 'Подтвердить';
+	String get openTelegram => 'Нажмите сюда и откройте телеграм для получения смс-подтверждения';
 }
 
 // Path: oil
@@ -409,6 +409,7 @@ class StringsRegistrationUz extends StringsRegistrationRu {
 
 	// Translations
 	@override String get title => 'Ro\'yxatdan o\'tish';
+	@override String get enterValidNumber => 'Telefon raqamni + 998 00 000 00 00 ko\'rinishida kiriting';
 }
 
 // Path: userSelectType
@@ -445,9 +446,8 @@ class StringsOtpUz extends StringsOtpRu {
 		number,
 		const TextSpan(text: ' raqamiga yuborildi'),
 	]);
-	@override String get didNotReceive => 'Kodni olmadingizmi?';
-	@override String get retry => 'Qayta jo\'natish';
 	@override String get verify => 'Tasdiqlash';
+	@override String get openTelegram => 'SMS tasdiqlashni olish uchun shu yerga bosing va Telegram’ni oching';
 }
 
 // Path: oil
@@ -581,6 +581,7 @@ extension on Translations {
 			case 'login.forgotPassword': return 'Забыли пароль?';
 			case 'login.register': return 'Зарегистрироваться';
 			case 'registration.title': return 'Регистрация';
+			case 'registration.enterValidNumber': return 'Введите номер телефона в формате + 998 00 000 00 00';
 			case 'userSelectType.driver': return 'Водитель';
 			case 'userSelectType.mechanic': return 'Механик';
 			case 'serviceList.title': return 'Наши сервисы';
@@ -589,9 +590,8 @@ extension on Translations {
 				const TextSpan(text: 'СМС с кодом отправлен на номер '),
 				number,
 			]);
-			case 'otp.didNotReceive': return 'Не получили код?';
-			case 'otp.retry': return 'Отправить снова';
 			case 'otp.verify': return 'Подтвердить';
+			case 'otp.openTelegram': return 'Нажмите сюда и откройте телеграм для получения смс-подтверждения';
 			case 'oil.title': return 'Замена масла';
 			case 'oil.changeMileage': return 'Пробег во время замены';
 			case 'oil.mileageToChange': return 'Пробег до следующей замены';
@@ -644,6 +644,7 @@ extension on StringsUz {
 			case 'login.forgotPassword': return 'Parolni unutdingizmi?';
 			case 'login.register': return 'Ro\'yxatdan o\'tish';
 			case 'registration.title': return 'Ro\'yxatdan o\'tish';
+			case 'registration.enterValidNumber': return 'Telefon raqamni + 998 00 000 00 00 ko\'rinishida kiriting';
 			case 'userSelectType.driver': return 'Haydovchi';
 			case 'userSelectType.mechanic': return 'Usta';
 			case 'serviceList.title': return 'Bizning xizmatlarimiz';
@@ -653,9 +654,8 @@ extension on StringsUz {
 				number,
 				const TextSpan(text: ' raqamiga yuborildi'),
 			]);
-			case 'otp.didNotReceive': return 'Kodni olmadingizmi?';
-			case 'otp.retry': return 'Qayta jo\'natish';
 			case 'otp.verify': return 'Tasdiqlash';
+			case 'otp.openTelegram': return 'SMS tasdiqlashni olish uchun shu yerga bosing va Telegram’ni oching';
 			case 'oil.title': return 'Moy almashtirish';
 			case 'oil.changeMileage': return 'Almashtirish paytidagi probeg';
 			case 'oil.mileageToChange': return 'Keyingi almashtirishgacha probeg';

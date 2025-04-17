@@ -1,3 +1,5 @@
+import 'package:carfix_app/domain/entities/error_entity.dart';
+import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
@@ -52,5 +54,14 @@ extension StringExt on String {
   String removeSpaces() {
     final result = replaceAll(RegExp(r'\s+'), '');
     return result;
+  }
+}
+
+extension ErrorEntityExt on ErrorEntity {
+  String getError(AppLocale locale) {
+    return switch (locale) {
+      AppLocale.ru => messageRu ?? "",
+      AppLocale.uz => messageUz ?? "",
+    };
   }
 }

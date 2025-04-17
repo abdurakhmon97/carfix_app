@@ -1,5 +1,8 @@
+import 'package:carfix_app/application/language_provider.dart';
+import 'package:carfix_app/domain/entities/error_entity.dart';
 import 'package:carfix_app/utils/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 enum DialogType { error, warning, info }
 
@@ -46,6 +49,28 @@ class DialogManager {
     );
   }
 
+  static Future<void> openErrorDialog({
+    required BuildContext context,
+    required ErrorEntity error,
+    void Function()? mainButtonAction,
+  }) {
+    final locale = context.read<LanguageProvider>().locale!;
+    return showDialog(
+      context: context,
+      barrierDismissible: false, // Prevents closing by tapping outside
+      builder: (context) => AlertDialog(
+        content: Text(
+          error.getError(locale),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
 /*static Future<T?> openAlertDialog<T>({
     required BuildContext context,
     required String title,

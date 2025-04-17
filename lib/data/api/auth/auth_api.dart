@@ -10,7 +10,7 @@ abstract class AuthApi {
   @factoryMethod
   factory AuthApi(@Named("UnauthorizedClient") Dio dio) = _AuthApi;
 
-  @POST('/api/v1/register')
+  @POST('api/v1/register')
   Future<void> register(
     @Field('phone') String phone,
   );

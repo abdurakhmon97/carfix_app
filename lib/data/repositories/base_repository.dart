@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:carfix_app/data/dio/dio_error_mapper.dart';
 import 'package:carfix_app/domain/entities/error_entity.dart';
 import 'package:carfix_app/domain/entities/result_entity.dart';
@@ -11,6 +13,7 @@ abstract class BaseRepository {
       final result = await apiCall();
       return SuccessEntity(result);
     } on DioException catch (e) {
+      log('Base repo error ${e.toString()}');
       final errorEntity = DioErrorMapper.map(e);
       return FailureEntity(errorEntity);
     } catch (e) {
