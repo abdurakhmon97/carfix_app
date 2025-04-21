@@ -57,42 +57,44 @@ class _MyAppState extends State<MyApp> {
               create: (_) => ThemeProvider()..loadThemeMode(),
             ),
           ],
-          child: Builder(builder: (context) {
-            return MaterialApp.router(
-              title: tr.applicationName,
-              debugShowCheckedModeBanner: false,
-              theme: ThemeData.light().copyWith(
-                extensions: [
-                  OpenColors.light,
-                  OpenTypographies.fromColors(LightTextColor()),
+          child: Builder(
+            builder: (context) {
+              return MaterialApp.router(
+                title: tr.applicationName,
+                debugShowCheckedModeBanner: false,
+                theme: ThemeData.light().copyWith(
+                  extensions: [
+                    OpenColors.light,
+                    OpenTypographies.fromColors(LightTextColor()),
+                  ],
+                ),
+                darkTheme: ThemeData.dark().copyWith(
+                  extensions: [
+                    OpenColors.dark,
+                    OpenTypographies.fromColors(DarkTextColor()),
+                  ],
+                ),
+                themeMode: Provider.of<ThemeProvider>(context).mode,
+                routeInformationParser: _router.routeInformationParser,
+                routeInformationProvider: _router.routeInformationProvider,
+                routerDelegate: _router.routerDelegate,
+                localizationsDelegates: const [
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                  DefaultCupertinoLocalizations.delegate,
                 ],
-              ),
-              darkTheme: ThemeData.dark().copyWith(
-                extensions: [
-                  OpenColors.dark,
-                  OpenTypographies.fromColors(DarkTextColor()),
-                ],
-              ),
-              themeMode: Provider.of<ThemeProvider>(context).mode,
-              routeInformationParser: _router.routeInformationParser,
-              routeInformationProvider: _router.routeInformationProvider,
-              routerDelegate: _router.routerDelegate,
-              localizationsDelegates: const [
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-                DefaultCupertinoLocalizations.delegate,
-              ],
-              supportedLocales: AppLocaleUtils.supportedLocales,
-              locale: Locale(
-                Provider.of<LanguageProvider>(context).locale?.languageCode ??
-                    'uz',
-              ),
-              builder: (_, child) {
-                return child ?? const SizedBox.shrink();
-              },
-            );
-          }),
+                supportedLocales: AppLocaleUtils.supportedLocales,
+                locale: Locale(
+                  Provider.of<LanguageProvider>(context).locale?.languageCode ??
+                      'uz',
+                ),
+                builder: (_, child) {
+                  return child ?? const SizedBox.shrink();
+                },
+              );
+            },
+          ),
         ),
       ),
     );

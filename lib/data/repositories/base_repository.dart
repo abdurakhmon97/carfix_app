@@ -8,14 +8,20 @@ import 'package:dio/dio.dart';
 abstract class BaseRepository {
   const BaseRepository();
 
-  Future<ResultEntity<T?>> safeCall<T>(Future<T?> Function() apiCall) async {
+  Future<ResultEntity<T?>> safeCall<T>(
+    Future<T?> Function() apiCall,
+  ) async {
     try {
       final result = await apiCall();
       return SuccessEntity(result);
     } on DioException catch (e) {
       log('Base repo error ${e.toString()}');
-      final errorEntity = DioErrorMapper.map(e);
-      return FailureEntity(errorEntity);
+      final mappedError = DioErrorMapper.map(e);
+      if (mappedError is ErrorEntity) {
+        return FailureEntity(mappedError);
+      } else {
+        throw mappedError;
+      }
     } catch (e) {
       return FailureEntity(ErrorEntity(message: "Unknown error: $e"));
     }

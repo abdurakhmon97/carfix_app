@@ -5,7 +5,7 @@ part 'error_entity.freezed.dart';
 part 'error_entity.g.dart';
 
 @Freezed(copyWith: false)
-abstract class ErrorEntity with _$ErrorEntity {
+abstract class ErrorEntity with _$ErrorEntity implements Exception {
   const factory ErrorEntity({
     String? reason,
     int? code,
@@ -14,6 +14,6 @@ abstract class ErrorEntity with _$ErrorEntity {
     String? messageUz,
   }) = _ErrorEntity;
 
-  factory ErrorEntity.fromJson(Map<String, Object?> json) =>
+  factory ErrorEntity.fromJson(Map<String, dynamic> json) =>
       _$ErrorEntityFromJson(json);
 }

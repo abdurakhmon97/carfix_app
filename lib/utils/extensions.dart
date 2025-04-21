@@ -51,8 +51,8 @@ extension StringExt on String {
     return replaceAll(RegExp(r'[^0-9.]'), '');
   }
 
-  String removeSpaces() {
-    final result = replaceAll(RegExp(r'\s+'), '');
+  String adjustToPhone() {
+    final result = replaceAll(RegExp(r'\s+'), '').replaceAll("+", "");
     return result;
   }
 }

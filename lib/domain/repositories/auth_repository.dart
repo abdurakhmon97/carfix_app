@@ -6,4 +6,9 @@ abstract class AuthRepository {
   Future<ResultEntity<void>> register({
     required String phone,
   });
+
+  Future<ResultEntity<void>> login({
+    required String phone,
+    required String otp,
+  });
 }

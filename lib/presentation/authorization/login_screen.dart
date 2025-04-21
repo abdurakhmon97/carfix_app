@@ -1,5 +1,6 @@
 import 'package:carfix_app/presentation/authorization/registration_screen.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
+import 'package:carfix_app/utils/uikit/carfix_phone_field.dart';
 import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -43,10 +44,15 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               const SizedBox(height: 24),
-              CarfixTextField(
+              CarfixPhoneField(
                 controller: _usernameController,
-                inputType: TextInputType.phone,
-                hintText: tr.shared.phoneNumber,
+                validationModes: const [ValidationMode.onUnFocus],
+                validator: (_) {
+                  if (_usernameController.text.length != 18) {
+                    return tr.registration.enterValidNumber;
+                  }
+                  return null;
+                },
               ),
               const SizedBox(height: 16),
               CarfixTextField(

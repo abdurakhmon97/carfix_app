@@ -36,7 +36,7 @@ class _OtpScreenState extends State<OtpScreen> {
   @override
   void initState() {
     super.initState();
-    _isValid.addListener(() {
+    _otpController.addListener(() {
       if (_otpController.text.length == 6) {
         _isValid.value = true;
       } else {
@@ -120,10 +120,11 @@ class _OtpScreenState extends State<OtpScreen> {
                       return CarfixButton(
                         title: tr.otp.verify,
                         isLoading: isLoading,
-                        onTap: _isValid.value
+                        onTap: !_isValid.value
                             ? () => _authBloc.add(
-                                  AuthEvent.register(
-                                    phone: _args.phoneNumber.removeSpaces(),
+                                  AuthEvent.login(
+                                    phone: _args.phoneNumber.adjustToPhone(),
+                                    otp: _otpController.text,
                                   ),
                                 )
                             : null,

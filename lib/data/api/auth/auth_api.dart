@@ -14,4 +14,10 @@ abstract class AuthApi {
   Future<void> register(
     @Field('phone') String phone,
   );
+
+  @POST('api/v1/login')
+  Future<void> login(
+    @Field('username') String phone,
+    @Field('password') String otp,
+  );
 }

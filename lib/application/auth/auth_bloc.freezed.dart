@@ -139,6 +139,78 @@ class __$RegisterCopyWithImpl<$Res> implements _$RegisterCopyWith<$Res> {
 }
 
 /// @nodoc
+
+class _Login implements AuthEvent {
+  const _Login({required this.phone, required this.otp});
+
+  @override
+  final String phone;
+  final String otp;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LoginCopyWith<_Login> get copyWith =>
+      __$LoginCopyWithImpl<_Login>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _Login &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.otp, otp) || other.otp == otp));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, phone, otp);
+
+  @override
+  String toString() {
+    return 'AuthEvent.login(phone: $phone, otp: $otp)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$LoginCopyWith<$Res> implements $AuthEventCopyWith<$Res> {
+  factory _$LoginCopyWith(_Login value, $Res Function(_Login) _then) =
+      __$LoginCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String phone, String otp});
+}
+
+/// @nodoc
+class __$LoginCopyWithImpl<$Res> implements _$LoginCopyWith<$Res> {
+  __$LoginCopyWithImpl(this._self, this._then);
+
+  final _Login _self;
+  final $Res Function(_Login) _then;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? phone = null,
+    Object? otp = null,
+  }) {
+    return _then(_Login(
+      phone: null == phone
+          ? _self.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String,
+      otp: null == otp
+          ? _self.otp
+          : otp // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
 mixin _$AuthState {
   @override
   bool operator ==(Object other) {
@@ -279,6 +351,26 @@ class AuthRegisterSuccess implements AuthState {
   @override
   String toString() {
     return 'AuthState.registerSuccess()';
+  }
+}
+
+/// @nodoc
+
+class AuthLoginSuccess implements AuthState {
+  const AuthLoginSuccess();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AuthLoginSuccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'AuthState.loginSuccess()';
   }
 }
 

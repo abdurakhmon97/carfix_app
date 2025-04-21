@@ -1,9 +1,17 @@
 import 'package:carfix_app/domain/entities/error_entity.dart';
+import 'package:carfix_app/domain/entities/exception_mapper.dart';
 import 'package:dio/dio.dart';
 
 class DioErrorMapper {
-  static ErrorEntity map(DioException exception) {
+  static Exception map(DioException exception) {
     switch (exception.type) {
+      case DioExceptionType.badResponse:
+        final error = ErrorEntity.fromJson(
+          exception.response?.data['error'],
+        );
+        final domainException =
+            ExceptionMapper.mapDomainException(error.reason);
+        return domainException ?? error;
       case DioExceptionType.connectionTimeout:
       case DioExceptionType.sendTimeout:
       case DioExceptionType.receiveTimeout:
@@ -11,10 +19,6 @@ class DioErrorMapper {
           message: "Connection timeout",
           messageUz: "Ulanish vaqti tugadi",
           messageRu: "Время ожидания подключения истекло",
-        );
-      case DioExceptionType.badResponse:
-        return ErrorEntity.fromJson(
-          exception.response?.data['error'],
         );
       case DioExceptionType.cancel:
         return const ErrorEntity(

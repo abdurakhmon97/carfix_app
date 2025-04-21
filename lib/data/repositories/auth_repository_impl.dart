@@ -16,4 +16,12 @@ class AuthRepositoryImpl extends BaseRepository implements AuthRepository {
   }) {
     return safeCall(() => _authApi.register(phone));
   }
+
+  @override
+  Future<ResultEntity<void>> login({
+    required String phone,
+    required String otp,
+  }) {
+    return safeCall(() => _authApi.login(phone, otp));
+  }
 }
