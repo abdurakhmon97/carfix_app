@@ -1,5 +1,5 @@
 import 'package:carfix_app/application/language_provider.dart';
-import 'package:carfix_app/domain/entities/error_entity.dart';
+import 'package:carfix_app/domain/entities/common_exception_entity.dart';
 import 'package:carfix_app/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -51,7 +51,7 @@ class DialogManager {
 
   static Future<void> openErrorDialog({
     required BuildContext context,
-    required ErrorEntity error,
+    required CommonExceptionEntity error,
     void Function()? mainButtonAction,
   }) {
     final locale = context.read<LanguageProvider>().locale!;

@@ -6,7 +6,7 @@ sealed class AuthState with _$AuthState {
 
   const factory AuthState.loading() = AuthLoading;
 
-  const factory AuthState.error(ErrorEntity error) = AuthError;
+  const factory AuthState.error(ExceptionEntity exception) = AuthError;
 
   const factory AuthState.registerSuccess() = AuthRegisterSuccess;
 

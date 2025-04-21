@@ -275,9 +275,9 @@ class AuthLoading implements AuthState {
 /// @nodoc
 
 class AuthError implements AuthState {
-  const AuthError(this.error);
+  const AuthError(this.exception);
 
-  final ErrorEntity error;
+  final ExceptionEntity exception;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -291,15 +291,16 @@ class AuthError implements AuthState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is AuthError &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.exception, exception) ||
+                other.exception == exception));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error);
+  int get hashCode => Object.hash(runtimeType, exception);
 
   @override
   String toString() {
-    return 'AuthState.error(error: $error)';
+    return 'AuthState.error(exception: $exception)';
   }
 }
 
@@ -309,7 +310,7 @@ abstract mixin class $AuthErrorCopyWith<$Res>
   factory $AuthErrorCopyWith(AuthError value, $Res Function(AuthError) _then) =
       _$AuthErrorCopyWithImpl;
   @useResult
-  $Res call({ErrorEntity error});
+  $Res call({ExceptionEntity exception});
 }
 
 /// @nodoc
@@ -323,13 +324,13 @@ class _$AuthErrorCopyWithImpl<$Res> implements $AuthErrorCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? error = null,
+    Object? exception = null,
   }) {
     return _then(AuthError(
-      null == error
-          ? _self.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as ErrorEntity,
+      null == exception
+          ? _self.exception
+          : exception // ignore: cast_nullable_to_non_nullable
+              as ExceptionEntity,
     ));
   }
 }

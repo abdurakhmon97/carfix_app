@@ -1,11 +1,12 @@
 import 'package:carfix_app/application/auth/auth_bloc.dart';
+import 'package:carfix_app/domain/entities/common_exception_entity.dart';
 import 'package:carfix_app/presentation/otp/otp_arguments.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
 import 'package:carfix_app/utils/const_links.dart';
 import 'package:carfix_app/utils/extensions.dart';
 import 'package:carfix_app/utils/inject.dart';
-import 'package:carfix_app/utils/util_functions.dart';
 import 'package:carfix_app/utils/uikit/dialog_manager.dart';
+import 'package:carfix_app/utils/util_functions.dart';
 import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -103,10 +104,13 @@ class _OtpScreenState extends State<OtpScreen> {
               BlocConsumer<AuthBloc, AuthState>(
                 listener: (_, state) {
                   if (state is AuthError) {
-                    DialogManager.openErrorDialog(
-                      context: context,
-                      error: state.error,
-                    );
+                    final exception = state.exception;
+                    if (exception is CommonExceptionEntity) {
+                      DialogManager.openErrorDialog(
+                        context: context,
+                        error: exception,
+                      );
+                    }
                   }
                 },
                 builder: (_, state) {

@@ -1,4 +1,4 @@
-import 'package:carfix_app/domain/entities/error_entity.dart';
+import 'package:carfix_app/domain/entities/common_exception_entity.dart';
 import 'package:carfix_localization/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -57,7 +57,7 @@ extension StringExt on String {
   }
 }
 
-extension ErrorEntityExt on ErrorEntity {
+extension ErrorEntityExt on CommonExceptionEntity {
   String getError(AppLocale locale) {
     return switch (locale) {
       AppLocale.ru => messageRu ?? "",

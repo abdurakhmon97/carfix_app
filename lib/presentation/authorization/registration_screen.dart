@@ -1,4 +1,5 @@
 import 'package:carfix_app/application/auth/auth_bloc.dart';
+import 'package:carfix_app/domain/entities/common_exception_entity.dart';
 import 'package:carfix_app/presentation/otp/otp_arguments.dart';
 import 'package:carfix_app/presentation/otp/otp_screen.dart';
 import 'package:carfix_app/utils/carfix_uikit.dart';
@@ -63,24 +64,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     return null;
                   },
                 ),
-                /*const SizedBox(height: 16),
-              CarfixTextField(
-                controller: _passwordController,
-                hintText: tr.shared.password,
-              ),
-              const SizedBox(height: 16),
-              CarfixTextField(
-                controller: _repeatPasswordController,
-                hintText: tr.shared.repeatPassword,
-              ),*/
                 const SizedBox(height: 24),
                 BlocConsumer<AuthBloc, AuthState>(
                   listener: (_, state) {
                     if (state is AuthError) {
-                      DialogManager.openErrorDialog(
-                        context: context,
-                        error: state.error,
-                      );
+                      final exception = state.exception;
+                      if (exception is CommonExceptionEntity) {
+                        DialogManager.openErrorDialog(
+                          context: context,
+                          error: exception,
+                        );
+                      }
                     } else if (state is AuthRegisterSuccess) {
                       context.pushNamed(
                         OtpScreen.tag,

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:carfix_app/domain/entities/error_entity.dart';
+import 'package:carfix_app/domain/entities/exception_entity.dart';
 import 'package:carfix_app/domain/entities/result_entity.dart';
 import 'package:carfix_app/domain/repositories/auth_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -28,7 +28,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       case SuccessEntity<void>():
         emit(const AuthState.registerSuccess());
       case FailureEntity<void>():
-        emit(AuthState.error(result.error));
+        emit(AuthState.error(result.exception));
     }
   }
 
@@ -42,7 +42,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       case SuccessEntity<void>():
         emit(const AuthState.loginSuccess());
       case FailureEntity<void>():
-        emit(AuthState.error(result.error));
+        emit(AuthState.error(result.exception));
     }
   }
 }

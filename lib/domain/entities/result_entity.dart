@@ -1,4 +1,4 @@
-import 'package:carfix_app/domain/entities/error_entity.dart';
+import 'package:carfix_app/domain/entities/exception_entity.dart';
 
 sealed class ResultEntity<T> {
   const ResultEntity();
@@ -11,7 +11,7 @@ final class SuccessEntity<T> extends ResultEntity<T> {
 }
 
 final class FailureEntity<T> extends ResultEntity<T> {
-  final ErrorEntity error;
+  final ExceptionEntity exception;
 
-  const FailureEntity(this.error);
+  const FailureEntity(this.exception);
 }
